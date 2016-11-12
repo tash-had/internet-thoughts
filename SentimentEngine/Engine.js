@@ -78,5 +78,6 @@ function Engine(){
     //returns a list of the most used words
     return keySorted.slice(0,Math.min(numberOfWords, keySorted.length));
 
+    
   }
 }
