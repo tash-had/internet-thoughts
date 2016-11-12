@@ -82,7 +82,7 @@ function Engine(){
                   console.log(lines);
                   var line; 
                   for(line = 0; line < lines.length; line++){
-                      var tokens = lines[line].split(" ");
+                      var tokens = [lines[line].substring(0, lines[line].lastIndexOf(" ")), lines[line].substring(lines[line].lastIndexOf(" "), lines[line].length-1)];
                       addToMap(tokens[0],tokens[1]);
                   }
               }
