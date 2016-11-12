@@ -12,7 +12,8 @@ function Engine(){
   //this.
 
   this.loadMap = function(){
-    var file="https://cdn.rawgit.com/tash-had/YHack_2016/master/SentimentEngine/Corpus.txt";
+    //TODO Swtich back
+    var file="https://raw.githubusercontent.com/tash-had/YHack_2016/master/SentimentEngine/Corpus.txt";
       var rawFile = new XMLHttpRequest();
       rawFile.open("GET", file, false);
       rawFile.onreadystatechange = function (){
