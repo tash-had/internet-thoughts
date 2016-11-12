@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 var words = {}
 
 function addToMap(text, value){
@@ -87,7 +86,6 @@ engine.loadMap();
 var test = "Memes are good memes memes memes bad";
 console.log(engine.analyse(test));
 console.log(engine.getTopWords(test,3));
-=======
 var words = {}
 
 function addToMap(text, value){
@@ -141,8 +139,6 @@ function Engine(){
         amount-=1;
       }
     }
-    console.log(total);
-    console.log(amount);
     if(amount<=0){
       return 0;
     }
@@ -178,7 +174,3 @@ function Engine(){
 
 var engine = new Engine();
 engine.loadMap();
-var test = "Memes are good memes memes memes bad :)";
-console.log(engine.analyse(test));
-console.log(engine.getTopWords(test,3));
->>>>>>> 6d6a3cf0f3e723c4405224485851984f7a57453d
