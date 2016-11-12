@@ -18,11 +18,10 @@ function Engine(){
       rawFile.onreadystatechange = function (){
           if(rawFile.readyState === 4){
               if(rawFile.status === 200 || rawFile.status == 0){
-                  var lines = rawFile.responseText.trim().split('\n');
-                  console.log(lines.length);
-                  var line; 
+                  var lines = rawFile.responseText.trim().split('\n'), line;
                   for(line = 0; line < lines.length; line++){
-                      var tokens = [lines[line].substring(0, lines[line].lastIndexOf(" ")), lines[line].substring(lines[line].lastIndexOf(" "), lines[line].length-1).trim()];
+                      var tokens = [lines[line].substring(0, lines[line].lastIndexOf(" ")), 
+                      lines[line].substring(lines[line].lastIndexOf(" "), lines[line].length-1).trim()];
                       addToMap(tokens[0],tokens[1]);
                   }
               }
