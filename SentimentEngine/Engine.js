@@ -83,9 +83,3 @@ function Engine(){
   }
 }
 
-var engine = new Engine();
-engine.loadMap();
-console.log(words);
-var test = "ada 😀 hjsdhjhjs";
-console.log(engine.analyse(test));
-console.log(engine.getTopWords(test,3));
