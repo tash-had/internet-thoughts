@@ -1,0 +1,7 @@
+<h1>Results Page!</h1>
+
+<% for(var i = 0;i<resultsData.statuses.length;i++){ %>
+        <li><strong> <%= resultsData.statuses[i].text %> </li>
+<% }%>
+
+<a href="/"><button>Search again</button></a>
