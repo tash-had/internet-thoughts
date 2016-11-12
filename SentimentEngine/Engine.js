@@ -130,9 +130,6 @@ function Engine(){
       //check if contained
       if (word[i] in words){
         total+=parseInt(words[word[i]]);
-        console.log("word: " + word[i]);
-        console.log("Total: " + total);
-
       }
       //otherwise dont add anything and subtract from total wrods;
       else{
