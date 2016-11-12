@@ -1,0 +1,21 @@
+{
+  "name": "YHack_2016",
+  "version": "0.0.0",
+  "description": "Twitter sentiment data analysis",
+  "main": "twitterData.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tash-had/YHack_2016.git"
+  },
+  "author": "Robert Xu, Jonathan Sun, Tash-Had",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/tash-had/YHack_2016/issues"
+  },
+  "dependencies": {
+    "twitter": "~1.4.0"
+  }
+}
