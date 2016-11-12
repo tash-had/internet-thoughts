@@ -42,6 +42,10 @@ function Engine(){
       //check if contained
       if (word[i] in words){
         total+=parseInt(words[word[i]]);
+<<<<<<< HEAD
+     
+=======
+>>>>>>> origin/master
         //console.log(parseInt(words[word[i]]));
       }
       //otherwise dont add anything and subtract from total wrods;
@@ -53,8 +57,15 @@ function Engine(){
       return 0;
     }
     else{
+<<<<<<< HEAD
+      
+      total*1.0/=amount;
+      
+=======
       total/=amount;
+>>>>>>> origin/master
       return total;
+
     }
   }
 

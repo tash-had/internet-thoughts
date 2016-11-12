@@ -2,28 +2,33 @@
 <html>
 <head>
 	<title>Result Page</title>
-	<script src="https://raw.githubusercontent.com/tash-had/YHack_2016/master/SentimentEngine/Engine.js"></script>
+	<script src="https://cdn.rawgit.com/tash-had/YHack_2016/master/SentimentEngine/Engine.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 </head>
 <body>
 <h1>Results Page!</h1><a href="/"><button>Search again</button></a>
 
-<div id="tweetContainer" style="color:black;">
+<div id="tweetContainer" style="color:transparent;">
 <% for(var i = 0;i<resultsData.statuses.length;i++){ %>
-        <li><%= resultsData.statuses[i].text %> </li>
+        <%= resultsData.statuses[i].text %>
 <% }%>
 </div>
 </body>
 <script type="text/javascript">
-	$(document).ready(function(){
-		console.log("hi");
-	});
+    var data;
+	$("#tweetContainer").hide();
+	data =  $("#tweetContainer").html().trim().replace(/RT/g,"").replace(/\s+/g, ' ').replace(/[^a-zA-Z-]/g, ' ').replace(/-/g, " ");
+	data = data.toLowerCase();
+	console.log(data);
+
 	var engine = new Engine();
 	engine.loadMap();
-	console.log(words);
-	var test = "ada 😀 hjsdhjhjs";
-	console.log(engine.analyse(test));
-	console.log(engine.getTopWords(test,3));
+
+	console.log(engine.analyse(data));
+
+	
+
+
 
 </script>
 </html>
