@@ -6,12 +6,13 @@ function addToMap(text, value){
 function Engine(){
   //NEEDTODEFINE
   words ={};
-  this.allText;
+  //this.allText;
 
   //Method to add individual elements to hashmap
   //this.
 
   this.loadMap = function(){
+    //TODO Swtich back
     var file="https://raw.githubusercontent.com/tash-had/YHack_2016/master/SentimentEngine/Corpus.txt";
       var rawFile = new XMLHttpRequest();
       rawFile.open("GET", file, false);
@@ -32,7 +33,7 @@ function Engine(){
 
 
   //feed in twitter as text
-  this.analyse=function(text){
+  this.analyze=function(text){
     text=text.toLowerCase();
     var word = text.split(' ');
     var total=0;
@@ -41,7 +42,10 @@ function Engine(){
       //check if contained
       if (word[i] in words){
         total+=parseInt(words[word[i]]);
+<<<<<<< HEAD
      
+=======
+>>>>>>> origin/master
         //console.log(parseInt(words[word[i]]));
       }
       //otherwise dont add anything and subtract from total wrods;
@@ -53,9 +57,13 @@ function Engine(){
       return 0;
     }
     else{
+<<<<<<< HEAD
       
       total*1.0/=amount;
       
+=======
+      total/=amount;
+>>>>>>> origin/master
       return total;
 
     }
@@ -81,7 +89,5 @@ function Engine(){
     var keySorted = Object.keys(occurances).sort(function(a,b){return occurances[b]-occurances[a]});
     //returns a list of the most used words
     return keySorted.slice(0,Math.min(numberOfWords, keySorted.length));
-
   }
 }
-
