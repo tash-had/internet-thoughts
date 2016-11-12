@@ -1,39 +1,35 @@
 function Engine(){
   //NEEDTODEFINE
-  readTextFile("file:///C:/your/path/to/file.txt");
   this.words ={};
   this.allText;
-  this.loadMap(file);
 
   //Method to add individual elements to hashmap
-  this.addToMap(text, value){
+  this.addToMap=function(text, value){
     this.words[text]=value;
   }
 
-  //Method to load hashmap from words
-  //TODO Checksyntax and if file i/o works
-  this.loadMap(file){
-    document.getElementById(file).onchange = function(){
-
-      var file = this.files[0];
-
-      var reader = new FileReader();
-      reader.onload = function(progressEvent){
-
-        // By lines
-        var lines = this.result.split('\n');
-        for(var line = 0; line < lines.length; line++){
-            //add
-            var tokens=lines[line].split(" ");
-            this.addToMap(tokens[0],tokens[1]);
-        }
+  this.loadMap = function(){
+    var file="Corpus.txt";
+      var rawFile = new XMLHttpRequest();
+      rawFile.open("GET", file, false);
+      rawFile.onreadystatechange = function (){
+          if(rawFile.readyState === 4){
+              if(rawFile.status === 200 || rawFile.status == 0){
+                  var lines = rawFile.responseText.split('\n');
+                  for(var line = 0; line < lines.length; line++){
+                      //add
+                      var tokens=lines[line].split(" ");
+                      this.addToMap(tokens[0],tokens[1]);
+                  }
+              }
+          }
       }
-      reader.readAsText(file);
-    }
+      rawFile.send(null);
   }
 
+
   //feed in twitter as text
-  this.analyse(text){
+  this.analyse=function(text){
     var word = this.result.split(' ');
     var total;
     var amount = word.length;
@@ -52,3 +48,6 @@ function Engine(){
     return total;
   }
 }
+
+var engine = new Engine();
+engine.loadMap();
