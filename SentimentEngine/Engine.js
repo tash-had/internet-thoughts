@@ -12,7 +12,7 @@ function Engine(){
   //this.
 
   this.loadMap = function(){
-    var file="https://cdn.raw.githubusercontent.com/tash-had/YHack_2016/master/SentimentEngine/Corpus.txt";
+    var file="https://cdn.rawgit.com/tash-had/YHack_2016/master/SentimentEngine/Corpus.txt";
       var rawFile = new XMLHttpRequest();
       rawFile.open("GET", file, false);
       rawFile.onreadystatechange = function (){
@@ -41,7 +41,6 @@ function Engine(){
       //check if contained
       if (word[i] in words){
         total+=parseInt(words[word[i]]);
-        console.log("Word: "+word[i]+ ", Value: "+ parseInt(words[word[i]]));
         //console.log(parseInt(words[word[i]]));
       }
       //otherwise dont add anything and subtract from total wrods;
@@ -53,7 +52,6 @@ function Engine(){
       return 0;
     }
     else{
-      console.log("Amount: "+amount +", Total: "+total);
       total/=amount;
       return total;
     }
