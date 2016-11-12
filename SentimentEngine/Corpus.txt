@@ -2037,6 +2037,8 @@ medal 3
 mediocrity -3
 meditative 1
 melancholy -2
+meme 2
+memes 1
 memorable 1
 memoriam -2
 menace -2
@@ -3373,6 +3375,8 @@ xoxoxoxo 4
 yeah 1
 yearning 1
 yeees 2
+ye 1
+yeeee 2
 yes 1
 youthful 2
 yucky -2

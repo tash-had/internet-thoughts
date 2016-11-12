@@ -57,6 +57,7 @@ function Engine(){
     }
   }
 
+  //return the top n most used words
   this.getTopWords=function(text,numberOfWords){
     //count each occurance
     text=text.toLowerCase();
@@ -82,4 +83,6 @@ function Engine(){
 
 var engine = new Engine();
 engine.loadMap();
-console.log(engine.getTopWords("I I I really like like Hitler",3));
+var test = "Memes are good memes";
+console.log(engine.analyse(test));
+console.log(engine.getTopWords(test,3));
