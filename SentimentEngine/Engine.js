@@ -1,25 +1,32 @@
+var words = {}
+
+function addToMap(text, value){
+    words[text]=value;
+  }
 function Engine(){
   //NEEDTODEFINE
-  this.words ={};
+  words ={};
   this.allText;
 
   //Method to add individual elements to hashmap
-  this.addToMap=function(text, value){
-    this.words[text]=value;
-  }
+  //this.
 
   this.loadMap = function(){
-    var file="Corpus.txt";
+    var file="https://raw.githubusercontent.com/tash-had/YHack_2016/master/SentimentEngine/Corpus.txt";
       var rawFile = new XMLHttpRequest();
       rawFile.open("GET", file, false);
       rawFile.onreadystatechange = function (){
           if(rawFile.readyState === 4){
               if(rawFile.status === 200 || rawFile.status == 0){
                   var lines = rawFile.responseText.split('\n');
-                  for(var line = 0; line < lines.length; line++){
+                  console.log(lines);
+                  var line; 
+                  for(line = 0; line < lines.length; line++){
                       //add
-                      var tokens=lines[line].split(" ");
-                      this.addToMap(tokens[0],tokens[1]);
+                      var tokens = lines[line].split("  ");
+                      //console.log(lines[line].substring(" "));
+                      console.log(lines[line].indexOf(" "));
+                      addToMap(tokens[0],tokens[1]);
                   }
               }
           }
@@ -37,7 +44,7 @@ function Engine(){
 
       //check if contained
       if (this.word[i] in words){
-        total+=this.words[word[i]];
+        total+=words[word[i]];
       }
       //otherwise dont add anything and subtract from total wrods;
       else{
@@ -51,3 +58,4 @@ function Engine(){
 
 var engine = new Engine();
 engine.loadMap();
+console.log(words);
