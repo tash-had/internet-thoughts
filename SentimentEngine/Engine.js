@@ -6,7 +6,7 @@ function addToMap(text, value){
 function Engine(){
   //NEEDTODEFINE
   words ={};
-  this.allText;
+  //this.allText;
 
   //Method to add individual elements to hashmap
   //this.
@@ -77,7 +77,5 @@ function Engine(){
     var keySorted = Object.keys(occurances).sort(function(a,b){return occurances[b]-occurances[a]});
     //returns a list of the most used words
     return keySorted.slice(0,Math.min(numberOfWords, keySorted.length));
-
-    
   }
 }
