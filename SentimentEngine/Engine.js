@@ -40,7 +40,13 @@ function Engine(){
     for (var i=0;i< word.length;i++){
 
       //check if contained
-      total+=this.words[word];
+      if (this.word[i] in words){
+        total+=this.words[word[i]];
+      }
+      //otherwise dont add anything and subtract from total wrods;
+      else{
+        amount-=0;
+      }
     }
     total/=amount;
     return total;
