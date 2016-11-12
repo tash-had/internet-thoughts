@@ -41,7 +41,7 @@ function Engine(){
       //check if contained
       if (word[i] in words){
         total+=parseInt(words[word[i]]);
-        console.log("Word: "+word[i]+ ", Value: "+ parseInt(words[word[i]]));
+     
         //console.log(parseInt(words[word[i]]));
       }
       //otherwise dont add anything and subtract from total wrods;
@@ -53,9 +53,11 @@ function Engine(){
       return 0;
     }
     else{
-      console.log("Amount: "+amount +", Total: "+total);
-      total/=amount;
+      
+      total*1.0/=amount;
+      
       return total;
+
     }
   }
 
