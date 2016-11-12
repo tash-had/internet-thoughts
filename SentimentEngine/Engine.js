@@ -48,7 +48,7 @@ function Engine(){
         amount-=1;
       }
     }
-    if(amount===0){
+    if(amount<=0){
       return 0;
     }
     else{
@@ -83,6 +83,6 @@ function Engine(){
 
 var engine = new Engine();
 engine.loadMap();
-var test = "Memes are good memes";
+var test = "Memes are good memes memes memes bad";
 console.log(engine.analyse(test));
 console.log(engine.getTopWords(test,3));
