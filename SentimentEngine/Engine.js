@@ -41,14 +41,14 @@ function Engine(){
 
       //check if contained
       if (word[i] in words){
-        total+=words[word[i]];
+        total+=parseInt(words[word[i]]);
       }
       //otherwise dont add anything and subtract from total wrods;
       else{
         amount-=1;
       }
     }
-    if(amount==0){
+    if(amount===0){
       return 0;
     }
     else{
@@ -60,4 +60,4 @@ function Engine(){
 
 var engine = new Engine();
 engine.loadMap();
-console.log(engine.analyse("Cool stuff I eat ass and makes me confused"));
+console.log(engine.analyse("I really like Hitler"));
