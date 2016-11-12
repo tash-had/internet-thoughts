@@ -32,7 +32,7 @@ function Engine(){
 
 
   //feed in twitter as text
-  this.analyse=function(text){
+  this.analyze=function(text){
     text=text.toLowerCase();
     var word = text.split(' ');
     var total=0;
