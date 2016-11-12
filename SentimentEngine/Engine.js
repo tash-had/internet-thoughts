@@ -34,7 +34,7 @@ function Engine(){
   //feed in twitter as text
   this.analyse=function(text){
     var word = this.result.split(' ');
-    var total;
+    var total=0;
     var amount = word.length;
     for (var i=0;i< word.length;i++){
 
@@ -44,7 +44,7 @@ function Engine(){
       }
       //otherwise dont add anything and subtract from total wrods;
       else{
-        amount-=0;
+        amount-=1;
       }
     }
     total/=amount;
@@ -54,4 +54,5 @@ function Engine(){
 
 var engine = new Engine();
 engine.loadMap();
-console.log(words);
+console.log(cont)
+console.log(engine.analyse("Memes"));
