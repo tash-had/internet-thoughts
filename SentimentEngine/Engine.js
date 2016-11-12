@@ -38,10 +38,11 @@ function Engine(){
     var total=0;
     var amount = word.length;
     for (var i=0;i< word.length;i++){
-
       //check if contained
       if (word[i] in words){
         total+=parseInt(words[word[i]]);
+        console.log("Word: "+word[i]+ ", Value: "+ parseInt(words[word[i]]));
+        //console.log(parseInt(words[word[i]]));
       }
       //otherwise dont add anything and subtract from total wrods;
       else{
@@ -52,6 +53,7 @@ function Engine(){
       return 0;
     }
     else{
+      console.log("Amount: "+amount +", Total: "+total);
       total/=amount;
       return total;
     }
@@ -83,6 +85,7 @@ function Engine(){
 
 var engine = new Engine();
 engine.loadMap();
+console.log(words);
 var test = "ada 😀 hjsdhjhjs";
 console.log(engine.analyse(test));
 console.log(engine.getTopWords(test,3));
