@@ -53,7 +53,7 @@ function Engine(){
       return 0;
     }
     else{
-      total*1.0/=amount;
+      total = total*1.0/amount;
       return total;
 
     }
