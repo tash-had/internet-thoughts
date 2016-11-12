@@ -12,7 +12,7 @@ function Engine(){
   //this.
 
   this.loadMap = function(){
-    var file="https://raw.githubusercontent.com/tash-had/YHack_2016/master/SentimentEngine/Corpus.txt";
+    var file="https://cdn.raw.githubusercontent.com/tash-had/YHack_2016/master/SentimentEngine/Corpus.txt";
       var rawFile = new XMLHttpRequest();
       rawFile.open("GET", file, false);
       rawFile.onreadystatechange = function (){
@@ -82,4 +82,3 @@ function Engine(){
 
   }
 }
-
