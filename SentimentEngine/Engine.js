@@ -38,6 +38,8 @@ function Engine(){
     var total;
     var amount = word.length;
     for (var i=0;i< word.length;i++){
+
+      //check if contained
       total+=this.words[word];
     }
     total/=amount;
