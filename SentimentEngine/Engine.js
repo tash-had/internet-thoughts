@@ -22,7 +22,6 @@ function Engine(){
                   console.log(lines);
                   var line; 
                   for(line = 0; line < lines.length; line++){
-                      //add
                       var tokens = lines[line].split(" ");
                       addToMap(tokens[0],tokens[1]);
                   }
