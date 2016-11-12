@@ -20,7 +20,7 @@ function Engine(){
               if(rawFile.status === 200 || rawFile.status == 0){
                   var lines = rawFile.responseText.trim().split('\n'), line;
                   for(line = 0; line < lines.length; line++){
-                      var tokens = [lines[line].substring(0, lines[line].lastIndexOf(" ")), 
+                      var tokens = [lines[line].substring(0, lines[line].lastIndexOf(" ")),
                       lines[line].substring(lines[line].lastIndexOf(" "), lines[line].length-1).trim()];
                       addToMap(tokens[0],tokens[1]);
                   }
@@ -33,13 +33,14 @@ function Engine(){
 
   //feed in twitter as text
   this.analyse=function(text){
-    var word = this.result.split(' ');
+    text=text.toLowerCase();
+    var word = text.split(' ');
     var total=0;
     var amount = word.length;
     for (var i=0;i< word.length;i++){
 
       //check if contained
-      if (this.word[i] in words){
+      if (word[i] in words){
         total+=words[word[i]];
       }
       //otherwise dont add anything and subtract from total wrods;
@@ -47,12 +48,16 @@ function Engine(){
         amount-=1;
       }
     }
-    total/=amount;
-    return total;
+    if(amount==0){
+      return 0;
+    }
+    else{
+      total/=amount;
+      return total;
+    }
   }
 }
 
 var engine = new Engine();
 engine.loadMap();
-console.log(cont)
-console.log(engine.analyse("Memes"));
+console.log(engine.analyse("Cool stuff I eat ass and makes me confused"));
