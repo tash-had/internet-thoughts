@@ -3385,3 +3385,6 @@ zealot -2
 zealots -2
 zealous 2
 :) 3
+:( -3
+:'( -4
+:') 1
