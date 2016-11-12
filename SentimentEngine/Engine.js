@@ -56,8 +56,30 @@ function Engine(){
       return total;
     }
   }
+
+  this.getTopWords=function(text,numberOfWords){
+    //count each occurance
+    text=text.toLowerCase();
+    var word = text.split(' ');
+
+    //count occurances of each word
+    var occurances ={};
+    for (var i=0;i<word.length;i++){
+      if (word[i] in occurances){
+        occurances[word[i]] ++;
+      }
+      else{
+        occurances [word[i]]=1;
+      }
+    }
+    //sort
+    var keySorted = Object.keys(occurances).sort(function(a,b){return occurances[b]-occurances[a]});
+    //returns a list of the most used words
+    return keySorted.slice(0,Math.min(numberOfWords, keySorted.length));
+
+  }
 }
 
 var engine = new Engine();
 engine.loadMap();
-console.log(engine.analyse("I really like Hitler"));
+console.log(engine.getTopWords("I I I really like like Hitler",3));
