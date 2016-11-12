@@ -42,12 +42,17 @@ function Engine(){
       //check if contained
       if (word[i] in words){
         total+=parseInt(words[word[i]]);
+        console.log("word: " + word[i]);
+        console.log("Total: " + total);
+
       }
       //otherwise dont add anything and subtract from total wrods;
       else{
         amount-=1;
       }
     }
+    console.log(total);
+    console.log(amount);
     if(amount<=0){
       return 0;
     }
@@ -83,6 +88,6 @@ function Engine(){
 
 var engine = new Engine();
 engine.loadMap();
-var test = "Memes are good memes memes memes bad";
+var test = "Memes are good memes memes memes bad :)";
 console.log(engine.analyse(test));
 console.log(engine.getTopWords(test,3));
