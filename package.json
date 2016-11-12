@@ -16,6 +16,7 @@
     "url": "https://github.com/tash-had/YHack_2016/issues"
   },
   "dependencies": {
-    "twitter": "~1.4.0"
+    "twitter": "~1.4.0",
+    "ejs": "~2.5.2"
   }
 }
