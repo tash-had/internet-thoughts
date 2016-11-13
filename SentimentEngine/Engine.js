@@ -81,5 +81,3 @@ function Engine(){
     return keySorted.slice(0,Math.min(numberOfWords, keySorted.length));
   }
 }
-var engine=new Engine();
-engine.loadMap();
