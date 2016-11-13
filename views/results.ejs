@@ -2,12 +2,19 @@
 <html>
 <head>
 	<title>InternetThoughts</title>
-	<script src="https://cdn.rawgit.com/tash-had/YHack_2016/master/SentimentEngine/Engine.js"></script>
+	<script src="https://ucarecdn.com/8200df15-bf81-4247-9c08-18cd3634aa48/Engine.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<script type="text/javascript" src = "https://cdn.rawgit.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.min.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	
 	<style type="text/css">
 		
 		#container {
+  			margin: 20px;
+  			width: 100%;
+  			height: 100px;
+		}	
+		#container1 {
   			margin: 20px;
   			width: 100%;
   			height: 100px;
@@ -17,8 +24,13 @@
 
 	</style>
 </head>
-<body>
-<h1>Results Page!</h1><a href="/"><button>Search again</button></a>
+
+<div class="jumbotron">
+  <h1>The internet's thoughts about<span>filler</span></h1>
+  
+</div>
+
+
 
 <div id="tweetContainer" style="color:transparent;">
 <% for(var i = 0;i<resultsData.statuses.length;i++){ %>
@@ -26,16 +38,22 @@
 <% }%>
 </div>
 
-<div id="container"></div>
-
-<div>
-	Default positive number
+<div class="container">
+	<span>#</span>Positive
 </div>
 
-<div>
-	Default negative number
+<div id="container" class="container"></div>
+
+<div class ="container">
+	<span>#</span>Negative
 </div>
 
+<div id="container1", class="container"></div>
+
+
+
+
+<p><a class="btn btn-primary btn-lg"  role="button">Search again</a></p>
 
 </body>
 <script type="text/javascript">
@@ -49,13 +67,15 @@
 	var engine = new Engine();
 	engine.loadMap();
 
-	score = Math.round(engine.analyse(data)*100);
-	console.log(score);
+	Pscore = Math.round(engine.analyze(data)[0]*100);
+	console.log(Pscore);
+	Nscore = Math.round(engine.analyze(data)[1]*100);
+	console.log(Nscore);
 
 	var bar = new ProgressBar.Line(container, {
-  strokeWidth: 100,
+  strokeWidth: 4,
   easing: 'easeInOut',
-  duration: 2000,
+  duration: 3000,
   color: '#FFEA82',
   trailColor: '#eee',
   trailWidth: 1,
@@ -67,10 +87,24 @@
   }
 });
 
-
+var bar1 = new ProgressBar.Line(container1, {
+  strokeWidth: 4,
+  easing: 'easeInOut',
+  duration: 3000,
+  color: '#FFEA82',
+  trailColor: '#eee',
+  trailWidth: 1,
+  svgStyle: {width: '100%', height: '100%'},
+  from: {color: '#FFEA82'},
+  to: {color: '#ED6A5A'},
+  step: (state, bar1) => {
+    bar1.path.setAttribute('stroke', state.color);
+  }
+});
 
 
 bar.animate(1.0);
+bar1.animate(1.0);
 
 </script>
 </html>
