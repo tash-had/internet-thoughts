@@ -11,6 +11,7 @@ var client = new Twitter({
   access_token_secret: 'hlIpItCXae7tUfT6UmIR9eOz5lzksz5tLzdzTR2mCD8Ui'
 });
 
+
 app.get("/", function(req, res){
     res.render("search");
 })
@@ -19,11 +20,11 @@ app.get("/results", function(req, res){
     var inputText = req.query.input;
     client.get('search/tweets', { q:inputText , count: 100, lang: "en", resultType: "popular", exclude:"links"}, function(error, tweets, response) {
         res.render("results", {resultsData: tweets, search:inputText});
-        
+
     });
 })
 
 app.listen(8000, 'localhost', function(){
     console.log("server started");
-    
+
 });
