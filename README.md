@@ -18,13 +18,10 @@ Ever wonder what the internet thinks about a certain topic, issue, or person? We
 &nbsp;&nbsp;&nbsp;->CSS   
 &nbsp;&nbsp;&nbsp;->HTML   
 
-##TODO
-###Difficult   
+##TODO  
 []Hosting 
 []Context   
 []Results Page   
-
-###Easy
 []Reddit   
 []Domain       
 []Facebook  
