@@ -4,12 +4,12 @@ Ever wonder what the internet thinks about a certain topic, issue, or person? We
 
 #The magic behind it all:
 -A custom sentiment analysis engine   
-  <space><space>->We used a custom corpus with support for emojis and slang   
+&nbsp;&nbsp;&nbsp;->We used a custom corpus with support for emojis and slang   
 -Twitter API   
-  <space>-> Fetched hundreds of tweets from a search query   
-  <space>-> Parsed the tweets for use with sentiment analysis engine   
+&nbsp;&nbsp;&nbsp;-> Fetched hundreds of tweets from a search query   
+&nbsp;&nbsp;&nbsp;-> Parsed the tweets for use with sentiment analysis engine   
 -Backend   
-  <space>->Infrastructure in NodeJs   
+&nbsp;&nbsp;&nbsp;->Infrastructure in NodeJs   
 -Frontend   
-  <space>->CSS   
-  <space>->HTML   
+&nbsp;&nbsp;&nbsp;->CSS   
+&nbsp;&nbsp;&nbsp;->HTML   
