@@ -18,7 +18,8 @@ app.get("/", function(req, res){
 app.get("/results", function(req, res){
     var inputText = req.query.input;
     client.get('search/tweets', { q:inputText , count: 100, lang: "en", resultType: "popular", exclude:"links"}, function(error, tweets, response) {
-        res.render("results", {resultsData: tweets});
+        res.render("results", {resultsData: tweets, search:inputText});
+        
     });
 })
 

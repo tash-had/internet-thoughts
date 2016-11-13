@@ -10,14 +10,16 @@
 	<style type="text/css">
 		
 		#container {
-  			margin: 20px;
-  			width: 100%;
+  			width: 50%;
   			height: 100px;
 		}	
 		#container1 {
-  			margin: 20px;
-  			width: 100%;
+  			
+  			width: 50%;
   			height: 100px;
+		}
+		#pBar{
+			text-align: right;
 		}	
 
 
@@ -26,7 +28,7 @@
 </head>
 
 <div class="jumbotron">
-  <h1>The internet's thoughts about<span>filler</span></h1>
+  <h1>The internet's thoughts about <%=search%> </h1>
   
 </div>
 
@@ -38,22 +40,27 @@
 <% }%>
 </div>
 
-<div class="container">
-	<span>#</span>Positive
+
+
+
+<div class="container" id="pBar">
+	<div class="col-lg-6 container"><span id="pNum">#</span>Positive</div>
+	<div id="container" class="container col-lg-6"></div>
 </div>
 
-<div id="container" class="container"></div>
+
 
 <div class ="container">
-	<span>#</span>Negative
+	<div id="container1", class="container col-lg-6"></div>
+	<div class="col-lg-6 container"><span id="nNum">#</span>Negative</div>
 </div>
 
-<div id="container1", class="container"></div>
 
 
 
 
-<p><a class="btn btn-primary btn-lg"  role="button">Search again</a></p>
+
+<p><a  href="/" class="btn btn-primary btn-lg"  role="button">Search again</a></p>
 
 </body>
 <script type="text/javascript">
@@ -71,6 +78,9 @@
 	console.log(Pscore);
 	Nscore = Math.round(engine.analyze(data)[1]*100);
 	console.log(Nscore);
+
+	$("#pNum").text(Pscore + "% ");
+	$("#nNum").text(Nscore + "% ");
 
 	var bar = new ProgressBar.Line(container, {
   strokeWidth: 4,
@@ -104,7 +114,7 @@ var bar1 = new ProgressBar.Line(container1, {
 
 
 bar.animate(1.0);
-bar1.animate(1.0);
+bar1.animate(-1.0);
 
 </script>
 </html>
