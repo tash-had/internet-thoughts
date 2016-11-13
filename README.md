@@ -19,7 +19,8 @@ Ever wonder what the internet thinks about a certain topic, issue, or person? We
 &nbsp;&nbsp;&nbsp;->HTML   
 
 ##TODO  
-#Different Platform Info
+#Different Platform Info 
+--do for monthly data after
 []finish bar (results page) 
 []frequent words  wordmap 
 
