@@ -2,6 +2,8 @@
 
 ![alt text](https://github.com/tash-had/YHack_2016/blob/master/views/photos/logoInnerShadow.png?raw=true "Oh my.... what a beautiful Readme")
 
+[LIVE DEMO: https://internet-thoughts.herokuapp.com/](https://internet-thoughts.herokuapp.com/)
+
 Ever wonder what the internet thinks about a certain topic, issue, or person? Well, what better way to gauge the internet's popular opinion than through the viral forces of Twitter! Just enter a search query you are curious about on our site and a sentiment analysis of hundreds of tweets in relation to that topic will be returned to you. Find out where you stand amongst the rest of the world!
 
 ##The magic behind it all:
@@ -27,7 +29,7 @@ Ever wonder what the internet thinks about a certain topic, issue, or person? We
 - requires info through different platforms
 
 
-[]hosting 
+[x]hosting 
  - domain + host 
 
 []presentation 
