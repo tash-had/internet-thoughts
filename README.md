@@ -21,13 +21,15 @@ Ever wonder what the internet thinks about a certain topic, issue, or person? We
 &nbsp;&nbsp;&nbsp;->HTML   
 
 ##Features
--Multi-source data fetching   
+###Multi-source data fetching   
 &nbsp;&nbsp;&nbsp;->Sources infomation from reddit, twitter and tumblr   
--Custom sentiment analysis engine
+###Custom sentiment analysis engine
 &nbsp;&nbsp;&nbsp;->Cross checks input sources against individual word's sentiment values as well as contexual word's sentiment values   
--Runable and deployed   
+###Runable and deployed   
 &nbsp;&nbsp;&nbsp;->Fully runable via Heroku   
 &nbsp;&nbsp;&nbsp;->Custom domain points to Heroku instance via CNAME alias   
+###Scalable
+&nbsp;&nbsp;&nbsp;->Engine can process any length of text and uses 0(1) space to store corpus   
 
 
 ##TODO  
