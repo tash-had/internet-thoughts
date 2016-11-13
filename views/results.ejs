@@ -357,13 +357,13 @@ https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.0/css/hover-min.css">
 
     bar.animate(1.0);
     bar1.animate(1.0);
-    engine.getTumblrPosts();
-
+    engine.getTumblrPosts(searched);
+    $("#tumblrBtn").show();
 
 } 
     function tumblrAnalysis(){
-   	$("#tumblrBtn").hide();
-    engine.parseTumblrReplies(searched);
+   	    $("#tumblrBtn").hide();
+    engine.parseTumblrReplies();
     
 
 //    var engine = new Engine();
@@ -436,6 +436,7 @@ https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.0/css/hover-min.css">
 } 
 $(document).ready(function(){
 	twitterAnalysis();
+    $("#tumblrBtn").hide();
 });
 </script>
 
