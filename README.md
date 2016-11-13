@@ -4,7 +4,7 @@ Ever wonder what the internet thinks about a certain topic, issue, or person? We
 
 #The magic behind it all:
 -A custom sentiment analysis engine   
-  <space>->We used a custom corpus with support for emojis and slang   
+  <space><space>->We used a custom corpus with support for emojis and slang   
 -Twitter API   
   <space>-> Fetched hundreds of tweets from a search query   
   <space>-> Parsed the tweets for use with sentiment analysis engine   
