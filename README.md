@@ -25,8 +25,8 @@ Ever wonder what the internet thinks about a certain topic, issue, or person? We
 []Results Page   
 
 ###Easy
-[]Reddit 
-[]Domain      
+[]Reddit   
+[]Domain       
 []Facebook  
 []Additional Graphs   
 []Presentation   
