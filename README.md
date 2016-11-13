@@ -19,7 +19,16 @@ Ever wonder what the internet thinks about a certain topic, issue, or person? We
 &nbsp;&nbsp;&nbsp;->HTML   
 
 ##TODO
-[]Reddit   
-[]Facebook
-[]Hosting   
-[]Additional Graphs
+###Difficult   
+[]Hosting 
+[]Context   
+[]Results Page   
+
+###Easy
+[]Reddit 
+[]Domain      
+[]Facebook  
+[]Additional Graphs   
+[]Presentation
+[]Navbar   
+[]Blurred background
