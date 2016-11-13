@@ -19,6 +19,7 @@ Ever wonder what the internet thinks about a certain topic, issue, or person? We
 &nbsp;&nbsp;&nbsp;->HTML   
 
 ##TODO  
+#Different Platform Info
 []finish bar (results page) 
 []frequent words  wordmap 
 
