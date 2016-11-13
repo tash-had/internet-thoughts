@@ -75,9 +75,10 @@ https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.0/css/hover-min.css">
 
 
 <div id="tweetContainer" style="color:transparent;">
-<% for(var i = 0;i<resultsData.statuses.length;i++){ %>
+	<%for(var i = 0;i<resultsData.statuses.length;i++){ %>
         <%= resultsData.statuses[i].text %>
 <% }%>
+
 </div>
 
 
@@ -114,6 +115,8 @@ https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.0/css/hover-min.css">
 <script type="text/javascript">
     var data;
     var score;
+    var Pscore;
+    var Nscore;
 	$("#tweetContainer").hide();
 	data =  $("#tweetContainer").html().trim().replace(/RT/g,"").replace(/\s+/g, ' ').replace(/[^a-zA-Z-]/g, ' ').replace(/-/g, " ");
 	data = data.toLowerCase();
@@ -121,11 +124,14 @@ https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.0/css/hover-min.css">
 
 	var engine = new Engine();
 	engine.loadMap();
+	
+	
 
-	Pscore = Math.round(engine.analyze(data)[0]*100);
+		Pscore = Math.round(engine.analyze(data)[0]*100);
 	console.log(Pscore);
 	Nscore = Math.round(engine.analyze(data)[1]*100);
 	console.log(Nscore);
+	
 
 	$("#pNum").text(Pscore + "% ");
 	$("#nNum").text(Nscore + "% ");
