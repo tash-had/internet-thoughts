@@ -12,3 +12,49 @@
 .icon-block .material-icons {
 	font-size: inherit;
 }
+html,
+body {
+    margin: 0;
+    overflow: hidden;
+    height: 100%;
+}
+
+/* Scale canvas with resize attribute to full size */
+canvas[resize] {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgb(4,0,45); !important;
+    z-index: -1 !important;
+}
+
+#searchBtn{
+	border-radius: 5px;
+	background-color: #ffffff !important; 
+	color: #673AB7;	
+}
+#navBar{
+	background-color: transparent !important;
+}
+
+input[type=text] {
+    width: 40%;
+    box-sizing: border-box;
+    border: 2px solid #eee;
+    border-radius: 4px;
+    color: white;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    font-size: 1em;
+    -webkit-transition: width 0.4s ease-in-out;
+    -moz-transition: width 0.4s ease-in-out;
+    -ms-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 50%;
+    background-color: #fafafa;
+    color: black;
+}
