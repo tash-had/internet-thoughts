@@ -11,6 +11,8 @@ var client = new Twitter({
   access_token_secret: 'hlIpItCXae7tUfT6UmIR9eOz5lzksz5tLzdzTR2mCD8Ui'
 });
 
+app.set('port', (process.env.PORT || 5000));
+
 app.get("/", function(req, res){
     res.render("search");
 })
