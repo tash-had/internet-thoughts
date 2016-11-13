@@ -22,17 +22,46 @@ https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.0/css/hover-min.css">
         }
         
         #container {
-            width: 100%;
-            height: 100px;
-            margin: 2%;
-            border-radius: 5px;
+        	width: 100%;
+        	height: 100px;
+        	margin: 2%;
+        	border-radius: 5px;
 
         }
         
         #container1 {
-            width: 100%;
-            height: 100px;
-            margin: 2%;
+        	width: 100%;
+        	height: 100px;
+        	margin: 2%;
+        }
+        #containerFOR3 {
+        	width: 100%;
+        	height: 100px;
+        	margin: 2%;
+        	border-radius: 5px;
+
+        }
+        #containerFOR31 {
+        	width: 100%;
+        	height: 100px;
+        	margin: 2%;
+        }
+        
+        #containerFOR2 {
+        	width: 100%;
+        	height: 100px;
+        	margin: 2%;
+        }
+        #containerFOR21 {
+        	width: 100%;
+        	height: 100px;
+        	margin: 2%;
+        	border-radius: 5px;
+
+        }
+        
+        .platformTitle{
+        	text-align: center;
         }
         
         #butt {
@@ -71,6 +100,17 @@ https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.0/css/hover-min.css">
         #graphBtnContainer{
         	text-align: center;
         }
+        .button-menu {
+        	background-color: #4CAF50; /* Green */
+        	border: none;
+        	color: white;
+        	padding: 15px 32px;
+        	text-align: center;
+        	text-decoration: none;
+        	display: inline-block;
+        	font-size: 16px;
+        	background-color: #2196fe;
+        }
     </style>
 </head>
 <body>
@@ -78,9 +118,9 @@ https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.0/css/hover-min.css">
     <h1 style="color: white">The internet's thoughts about <strong><span id="givenQuery"><%=search%></span></strong> </h1>
 </div>
 <div id="graphBtnContainer">
-<button class="button-primary" onclick="window.reload();">Twitter Analysis</button>
-<button class="button-primary" onclick="redditAnalysis();">Reddit Analysis</button>
-<button class="button-primary" onclick="tumblrAnalysis();">Tumblr Analysis</button>
+<button class="button-menu" onclick="window.reload();">Twitter Analysis</button>
+<button class="button-menu" onclick="redditAnalysis();">Reddit Analysis</button>
+<button class="button-menu" onclick="tumblrAnalysis();">Tumblr Analysis</button>
 </div>
 
 <div id="tweetContainer" style="color:transparent;">
@@ -90,6 +130,7 @@ https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.0/css/hover-min.css">
 
 </div>
 <div class="row" id="infoParent">
+<h2 class="platformTitle">Twitter Data</h2>
 <div class="col-lg-6">
 	<div class="container" id="pBar">
     <div class="row">
@@ -109,6 +150,7 @@ https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.0/css/hover-min.css">
 </div>	
 </div>
 <div class="row" id="infoParent2">
+<h2 class="platformTitle">Reddit Data</h2>
 <div class="col-lg-6">
 	<div class="container" id="pBar2">
     <div class="row">
@@ -128,6 +170,7 @@ https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.0/css/hover-min.css">
 </div>	
 </div>
 <div class="row" id="infoParent3">
+<h2 class="platformTitle">Tumblr Data</h2>
 <div class="col-lg-6">
 	<div class="container" id="pBar3">
     <div class="row">
