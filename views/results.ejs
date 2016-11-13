@@ -1,114 +1,156 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>InternetThoughts</title>
-	<script src="https://ucarecdn.com/e662af72-c48f-4c92-8e6f-c0585c20a618/Engine.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-	<script type="text/javascript" src = "https://cdn.rawgit.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.min.js"></script>
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="
+    <title>InternetThoughts</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="
 https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.0/css/hover-min.css">
-	
-	<style type="text/css">
-		h1{
-			font-family: 'Ubuntu', sans-serif;
-			margin: auto 5%;
-			padding: 2% auto;
-		    color:  white;
-		}
-		#container {
-  			width: 100%;
-  			height: 100px;
-  			margin: 2%;
-  			
-  			border-radius:5px;
-  			
-		}	
-		#container1 {
-  			
-  			width: 100%;
-  			height: 100px;
-  			margin: 2%;
-  			padding: auto;
-		}
-		#butt{
-			text-align: center;
-			display: block;
-			padding-top: 20px;
-			font-family: 'Ubuntu', sans-serif;
-			color: #262d3a;
+	<script src="https://ucarecdn.com/2e6e912f-462d-4f2d-ba0f-a786335793e0/jqcloudmin.js"></script>
+	<link rel="stylesheet" href="https://ucarecdn.com/b5c5490b-b4e8-4205-a4c8-891dc2b3d8d6/jqcloudmin.css">
+	<script src="https://ucarecdn.com/e662af72-c48f-4c92-8e6f-c0585c20a618/Engine.js"></script>
 
-		}
-		
-	
-		.labels{
-			font-family: 'Ubuntu', sans-serif;
-			text-align: center;
-			margin:2%;
-			padding: auto;
-			font-size: 30px;
-			color: #262d3a;
-		}
-		.jumbotron{
-			background-color: #262d3a;
-		}
-		strong{
-			font-style: italic;
-			font-size: 120%;
-		}
-		body{
-			background-color:#eadedf;
-		}
-		
-		
+    <style type="text/css">
+        h1 {
+            font-family: 'Ubuntu', sans-serif;
+            margin: auto 5%;
+            padding: 2% auto;
+            color: white;
+        }
+        
+        #container {
+            width: 100%;
+            height: 100px;
+            margin: 2%;
+            border-radius: 5px;
 
-
-	</style>
+        }
+        
+        #container1 {
+            width: 100%;
+            height: 100px;
+            margin: 2%;
+        }
+        
+        #butt {
+            text-align: center;
+            display: block;
+            padding-top: 20px;
+            font-family: 'Ubuntu', sans-serif;
+            color: #262d3a;
+        }
+        
+        .labels {
+            font-family: 'Ubuntu', sans-serif;
+            text-align: center;
+            margin: 2%;
+            padding: auto;
+            font-size: 30px;
+            color: #262d3a;
+        }
+        
+        .jumbotron {
+            background-color: #262d3a;
+        }
+        
+        strong {
+            font-style: italic;
+            font-size: 120%;
+        }
+        
+        body {
+            background-color: #eadedf;
+        }
+        .barClass{
+        	display: block !important;
+        	margin: 10%;
+        }
+        #graphBtnContainer{
+        	text-align: center;
+        }
+    </style>
 </head>
-
+<body>
 <div class="jumbotron">
-  <h1 style="color: white">The internet's thoughts about <strong><%=search%></strong> </h1>
-  
+    <h1 style="color: white">The internet's thoughts about <strong><span id="givenQuery"><%=search%></span></strong> </h1>
 </div>
-
-
+<div id="graphBtnContainer">
+<button class="button-primary" onclick="window.reload();">Twitter Analysis</button>
+<button class="button-primary" onclick="redditAnalysis();">Reddit Analysis</button>
+<button class="button-primary" onclick="tumblrAnalysis();">Tumblr Analysis</button>
+</div>
 
 <div id="tweetContainer" style="color:transparent;">
-	<%for(var i = 0;i<resultsData.statuses.length;i++){ %>
+    <% for(var i = 0;i<resultsData.statuses.length;i++){ %>
         <%= resultsData.statuses[i].text %>
-<% }%>
+            <% }%>
 
 </div>
-
-
-
-
-<div class="container" id="pBar">
-   <div class="row">
-	<div class="col-lg-1 container labels"><span id="pNum">#</span>Positive</div>
-	<div id="container" class="container col-lg-11"></div>
-   </div>
+<div class="row" id="infoParent">
+<div class="col-lg-6">
+	<div class="container" id="pBar">
+    <div class="row">
+        <div class="col-lg-1 container labels"><span id="pNum">#</span>Positive</div>
+        <div id="container" class="barClass container col-lg-11"></div>
+    </div>
 </div>
 
+<div class="container" id="nBar">
+    <div class="row">
 
+        <div class="col-lg-1 container labels"><span id="nNum">#</span>Negative</div>
+        <div id="container1" , class="barClass container col-lg-11 labels"></div>
+    </div>
 
-<div class ="container" id="nBar" >
-	<div class="row">
-		
-		<div class="col-lg-1 container labels"><span id="nNum">#</span>Negative</div>
-		<div id="container1", class="container col-lg-11 labels",></div>
-	</div>
-	
+</div>
+</div>	
+</div>
+<div class="row" id="infoParent2">
+<div class="col-lg-6">
+	<div class="container" id="pBar2">
+    <div class="row">
+        <div class="col-lg-1 container labels"><span id="pNum2">#</span>Positive</div>
+        <div id="containerFOR2" class="barClass container col-lg-11"></div>
+    </div>
 </div>
 
+<div class="container" id="nBar2">
+    <div class="row">
 
+        <div class="col-lg-1 container labels"><span id="nNum22">#</span>Negative</div>
+        <div id="containerFOR21" , class="barClass container col-lg-11 labels"></div>
+    </div>
 
+</div>
+</div>	
+</div>
+<div class="row" id="infoParent3">
+<div class="col-lg-6">
+	<div class="container" id="pBar3">
+    <div class="row">
+        <div class="col-lg-1 container labels"><span id="pNum3">#</span>Positive</div>
+        <div id="containerFOR3" class="barClass container col-lg-11"></div>
+    </div>
+</div>
 
+<div class="container" id="nBar3">
+    <div class="row">
+
+        <div class="col-lg-1 container labels"><span id="nNum33">#</span>Negative</div>
+        <div id="containerFOR31" , class="barClass container col-lg-11 labels"></div>
+    </div>
+
+</div>
+</div>	
+</div>
 
 <div class="container" id="butt">
-	<p><a  href="/" class="btn btn-primary btn-lg button hvr-grow"  role="button" style="background-color: #262d3a">Search again</a></p>
+    <p><a href="/" class="btn btn-primary btn-lg button hvr-grow" role="button" style="background-color: #262d3a">Search again</a></p>
 </div>
+
 
 
 </body>
@@ -117,62 +159,237 @@ https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.0/css/hover-min.css">
     var score;
     var Pscore;
     var Nscore;
-	$("#tweetContainer").hide();
-	data =  $("#tweetContainer").html().trim().replace(/RT/g,"").replace(/\s+/g, ' ').replace(/[^a-zA-Z-]/g, ' ').replace(/-/g, " ");
-	data = data.toLowerCase();
-	console.log(data);
+    var engine; 
+    var searched = $("#givenQuery").html();
 
-	var engine = new Engine();
-	engine.loadMap();
-	
-	
 
-		Pscore = Math.round(engine.analyze(data)[0]*100);
-	console.log(Pscore);
-	Nscore = Math.round(engine.analyze(data)[1]*100);
-	console.log(Nscore);
-	
+    
+    function twitterAnalysis(){
+    	data = $("#tweetContainer").html().trim().replace(/RT/g, "").replace(/\s+/g, ' ').replace(/[^a-zA-Z-]/g, ' ').replace(/-/g, " ");
+    	data = data.toLowerCase();
+    	$("#tweetContainer").hide();
 
-	$("#pNum").text(Pscore + "% ");
-	$("#nNum").text(Nscore + "% ");
-	var width1 = (Pscore/100)*100;
-	$("#container").css("width", width1 + "%");
-	 var width2 = (Nscore/100)*100;
-	$("#container1").css("width", width2 + "%");
+    //console.log(data);
 
-	var bar = new ProgressBar.Line(container, {
-  strokeWidth: 4,
-  easing: 'easeInOut',
-  duration: 3000,
-  color: '#FFEA82',
-  trailColor: '#eee',
-  trailWidth: 1,
-  svgStyle: {width: '100%', height: '100%'},
-  from: {color: '#FFEA82'},
-  to: {color: '#c6434a'},
-  step: (state, bar) => {
-    bar.path.setAttribute('stroke', state.color);
-  }
+    engine = new Engine();
+    engine.loadMap();
+
+    var freqWords = engine.getTopWords(data, 15);
+
+
+    Pscore = Math.round(engine.analyze(data)[0] * 100);
+    //console.log(Pscore);
+    Nscore = Math.round(engine.analyze(data)[1] * 100);
+    //console.log(Nscore);
+
+
+    $("#pNum").text(Pscore + "% ");
+    $("#nNum").text(Nscore + "% ");
+    var width1 = (Pscore / 100) * 100;
+    $("#container").css("width", width1 + "%");
+    var width2 = (Nscore / 100) * 100;
+    $("#container1").css("width", width2 + "%");
+
+    var bar = new ProgressBar.Line(container, {
+    	strokeWidth: 4,
+    	easing: 'easeInOut',
+    	duration: 3000,
+    	color: '#FFEA82',
+    	trailColor: '#eee',
+    	trailWidth: 1,
+    	svgStyle: {
+    		width: '100%',
+    		height: '100%'
+    	},
+    	from: {
+    		color: '#FFEA82'
+    	},
+    	to: {
+    		color: '#c6434a'
+    	},
+    	step: (state, bar) => {
+    		bar.path.setAttribute('stroke', state.color);
+    	}
+    });
+
+    var bar1 = new ProgressBar.Line(container1, {
+    	strokeWidth: 4,
+    	easing: 'easeInOut',
+    	duration: 3000,
+    	color: '#236add',
+    	trailColor: '#eee',
+    	trailWidth: 1,
+    	svgStyle: {
+    		width: '100%',
+    		height: '100%'
+    	},
+    	from: {
+    		color: '#236add'
+    	},
+    	to: {
+    		color: '#0f4296'
+    	},
+    	step: (state, bar1) => {
+    		bar1.path.setAttribute('stroke', state.color);
+    	}
+    });
+
+
+    bar.animate(1.0);
+    bar1.animate(1.0);
+    engine.getRedditComments(searched);
+
+} 
+    function redditAnalysis(){
+    engine.parseRedditComments();
+    
+
+//    var engine = new Engine();
+  //  engine.loadMap();
+
+   	var data = engine.redditComments.toString().toLowerCase(); 
+
+
+    Pscore = Math.round(engine.analyze(data)[0] * 100);
+    //console.log(Pscore);
+    Nscore = Math.round(engine.analyze(data)[1] * 100);
+    //console.log(Nscore);
+
+
+    $("#pNum2").text(Pscore + "% ");
+    $("#nNum22").text(Nscore + "% ");
+    var width1 = (Pscore / 100) * 100;
+    $("#containerFOR2").css("width", width1 + "%");
+    var width2 = (Nscore / 100) * 100;
+    $("#containerFOR21").css("width", width2 + "%");
+
+    var bar = new ProgressBar.Line(containerFOR2, {
+    	strokeWidth: 4,
+    	easing: 'easeInOut',
+    	duration: 3000,
+    	color: '#FFEA82',
+    	trailColor: '#eee',
+    	trailWidth: 1,
+    	svgStyle: {
+    		width: '100%',
+    		height: '100%'
+    	},
+    	from: {
+    		color: '#FFEA82'
+    	},
+    	to: {
+    		color: '#c6434a'
+    	},
+    	step: (state, bar) => {
+    		bar.path.setAttribute('stroke', state.color);
+    	}
+    });
+
+    var bar1 = new ProgressBar.Line(containerFOR21, {
+    	strokeWidth: 4,
+    	easing: 'easeInOut',
+    	duration: 3000,
+    	color: '#236add',
+    	trailColor: '#eee',
+    	trailWidth: 1,
+    	svgStyle: {
+    		width: '100%',
+    		height: '100%'
+    	},
+    	from: {
+    		color: '#236add'
+    	},
+    	to: {
+    		color: '#0f4296'
+    	},
+    	step: (state, bar1) => {
+    		bar1.path.setAttribute('stroke', state.color);
+    	}
+    });
+
+
+    bar.animate(1.0);
+    bar1.animate(1.0);
+    engine.getTumblrPosts();
+
+
+} 
+    function tumblrAnalysis(){
+    engine.parseTumblrReplies(searched);
+    
+
+//    var engine = new Engine();
+  //  engine.loadMap();
+
+   	var data = engine.tumblrReplies.toString().toLowerCase(); 
+
+
+    Pscore = Math.round(engine.analyze(data)[0] * 100);
+    //console.log(Pscore);
+    Nscore = Math.round(engine.analyze(data)[1] * 100);
+    //console.log(Nscore);
+
+
+    $("#pNum3").text(Pscore + "% ");
+    $("#nNum33").text(Nscore + "% ");
+    var width1 = (Pscore / 100) * 100;
+    $("#containerFOR3").css("width", width1 + "%");
+    var width2 = (Nscore / 100) * 100;
+    $("#containerFOR31").css("width", width2 + "%");
+
+    var bar = new ProgressBar.Line(containerFOR3, {
+    	strokeWidth: 4,
+    	easing: 'easeInOut',
+    	duration: 3000,
+    	color: '#FFEA82',
+    	trailColor: '#eee',
+    	trailWidth: 1,
+    	svgStyle: {
+    		width: '100%',
+    		height: '100%'
+    	},
+    	from: {
+    		color: '#FFEA82'
+    	},
+    	to: {
+    		color: '#c6434a'
+    	},
+    	step: (state, bar) => {
+    		bar.path.setAttribute('stroke', state.color);
+    	}
+    });
+
+    var bar1 = new ProgressBar.Line(containerFOR31, {
+    	strokeWidth: 4,
+    	easing: 'easeInOut',
+    	duration: 3000,
+    	color: '#236add',
+    	trailColor: '#eee',
+    	trailWidth: 1,
+    	svgStyle: {
+    		width: '100%',
+    		height: '100%'
+    	},
+    	from: {
+    		color: '#236add'
+    	},
+    	to: {
+    		color: '#0f4296'
+    	},
+    	step: (state, bar1) => {
+    		bar1.path.setAttribute('stroke', state.color);
+    	}
+    });
+
+ 
+    bar.animate(1.0);
+    bar1.animate(1.0);
+
+} 
+$(document).ready(function(){
+	twitterAnalysis();
 });
-
-var bar1 = new ProgressBar.Line(container1, {
-  strokeWidth: 4,
-  easing: 'easeInOut',
-  duration: 3000,
-  color: '#236add',
-  trailColor: '#eee',
-  trailWidth: 1,
-  svgStyle: {width: '100%', height: '100%'},
-  from: {color: '#236add'},
-  to: {color: '#0f4296'},
-  step: (state, bar1) => {
-    bar1.path.setAttribute('stroke', state.color);
-  }
-});
-
-
-bar.animate(1.0);
-bar1.animate(1.0);
-
 </script>
+
+
 </html>
