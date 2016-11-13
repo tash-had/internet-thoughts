@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Result Page</title>
+	<script src="https://cdn.rawgit.com/tash-had/YHack_2016/master/SentimentEngine/Engine.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+<body>
+<h1>Results Page!</h1><a href="/"><button>Search again</button></a>
+
+<div id="tweetContainer" style="color:transparent;">
+<% for(var i = 0;i<resultsData.statuses.length;i++){ %>
+        <%= resultsData.statuses[i].text %>
+<% }%>
+</div>
+</body>
+<script type="text/javascript">
+    var data;
+	$("#tweetContainer").hide();
+	data =  $("#tweetContainer").html().trim().replace(/RT/g,"").replace(/\s+/g, ' ').replace(/[^a-zA-Z-]/g, ' ').replace(/-/g, " ");
+	data = data.toLowerCase();
+	console.log(data);
+
+	var engine = new Engine();
+	engine.loadMap();
+
+	console.log(engine.analyse(data));
+
+	
+
+
+
+</script>
+</html>
