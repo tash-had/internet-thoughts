@@ -11,7 +11,7 @@
 https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.0/css/hover-min.css">
 	<script src="https://ucarecdn.com/2e6e912f-462d-4f2d-ba0f-a786335793e0/jqcloudmin.js"></script>
 	<link rel="stylesheet" href="https://ucarecdn.com/b5c5490b-b4e8-4205-a4c8-891dc2b3d8d6/jqcloudmin.css">
-	<script src="https://ucarecdn.com/e662af72-c48f-4c92-8e6f-c0585c20a618/Engine.js"></script>
+	<script src="https://ucarecdn.com/5e9f28e6-27b9-417d-8e6c-a748e07329b0/Engine.js"></script>
 
     <style type="text/css">
         h1 {
@@ -108,8 +108,10 @@ https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.0/css/hover-min.css">
         	text-align: center;
         	text-decoration: none;
         	display: inline-block;
+        	width: 40%;
         	font-size: 16px;
         	background-color: #2196fe;
+
         }
     </style>
 </head>
@@ -118,9 +120,9 @@ https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.0/css/hover-min.css">
     <h1 style="color: white">The internet's thoughts about <strong><span id="givenQuery"><%=search%></span></strong> </h1>
 </div>
 <div id="graphBtnContainer">
-<button class="button-menu" onclick="window.reload();">Twitter Analysis</button>
-<button class="button-menu" onclick="redditAnalysis();">Reddit Analysis</button>
-<button class="button-menu" onclick="tumblrAnalysis();">Tumblr Analysis</button>
+<button class="button-menu" onclick="twitterAnalysis();" id="twitterBtn">Twitter Analysis</button>
+<button class="button-menu" onclick="redditAnalysis();" id="redditBtn">Reddit Analysis</button>
+<button class="button-menu" onclick="tumblrAnalysis();" id="tumblrBtn">Tumblr Analysis</button>
 </div>
 
 <div id="tweetContainer" style="color:transparent;">
@@ -208,6 +210,7 @@ https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.0/css/hover-min.css">
 
     
     function twitterAnalysis(){
+    	$("#twitterBtn").hide();
     	data = $("#tweetContainer").html().trim().replace(/RT/g, "").replace(/\s+/g, ' ').replace(/[^a-zA-Z-]/g, ' ').replace(/-/g, " ");
     	data = data.toLowerCase();
     	$("#tweetContainer").hide();
@@ -284,6 +287,7 @@ https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.0/css/hover-min.css">
 
 } 
     function redditAnalysis(){
+  	$("#redditBtn").hide();
     engine.parseRedditComments();
     
 
@@ -358,6 +362,7 @@ https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.0/css/hover-min.css">
 
 } 
     function tumblrAnalysis(){
+   	$("#tumblrBtn").hide();
     engine.parseTumblrReplies(searched);
     
 
