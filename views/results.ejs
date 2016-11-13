@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Result Page</title>
+	<title>InternetThoughts</title>
 	<script src="https://cdn.rawgit.com/tash-had/YHack_2016/master/SentimentEngine/Engine.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-	<style type="text/css" src="style.css"></style>
-	<script type="text/javascript" src="jsinit.js"></script>
+	<script type="text/javascript" src = "https://cdn.rawgit.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.min.js"></script>
+	<style type="text/css">
+		
+		#container {
+  			margin: 20px;
+  			width: 100%;
+  			height: 100px;
+		}	
+
+
+
+	</style>
 </head>
 <body>
 <h1>Results Page!</h1><a href="/"><button>Search again</button></a>
@@ -17,6 +27,15 @@
 </div>
 
 <div id="container"></div>
+
+<div>
+	Default positive number
+</div>
+
+<div>
+	Default negative number
+</div>
+
 
 </body>
 <script type="text/javascript">
@@ -32,6 +51,26 @@
 
 	score = Math.round(engine.analyse(data)*100);
 	console.log(score);
+
+	var bar = new ProgressBar.Line(container, {
+  strokeWidth: 100,
+  easing: 'easeInOut',
+  duration: 2000,
+  color: '#FFEA82',
+  trailColor: '#eee',
+  trailWidth: 1,
+  svgStyle: {width: '100%', height: '100%'},
+  from: {color: '#FFEA82'},
+  to: {color: '#ED6A5A'},
+  step: (state, bar) => {
+    bar.path.setAttribute('stroke', state.color);
+  }
+});
+
+
+
+
+bar.animate(1.0);
 
 </script>
 </html>
