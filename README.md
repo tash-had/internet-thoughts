@@ -19,13 +19,25 @@ Ever wonder what the internet thinks about a certain topic, issue, or person? We
 &nbsp;&nbsp;&nbsp;->HTML   
 
 ##TODO  
-[]Hosting 
-[]Context   
-[]Results Page   
-[]Reddit   
-[]Domain       
-[]Facebook  
-[]Additional Graphs   
-[]Presentation   
-[]Navbar   
-[]Blurred background
+[]finish bar (results page) 
+[]frequent words  wordmap 
+
+[]graphs 
+- requires info through different platforms
+
+
+[]hosting 
+ - domain + host 
+
+[]presentation 
+
+
+[]main page - decide about navbar 
+[]database  
+- long term data analysis, store in database, different platforms 
+
+
+[]context
+- couont emojiis (results.Ejs) 
+- count explanation marks
+- count cases (before converting to lowercase for corpus) - engine.Jst here to convert case
