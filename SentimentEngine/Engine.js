@@ -83,6 +83,3 @@ function Engine(){
     return keySorted.slice(0,Math.min(numberOfWords, keySorted.length));
   }
 }
-var engine= new Engine();
-engine.loadMap();
-console.log(engine.analyze("fuck love"));
