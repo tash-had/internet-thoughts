@@ -33,29 +33,31 @@ function Engine(){
 
 
   //feed in twitter as text
+  //returns {positive, negative}
   this.analyze=function(text){
     text=text.toLowerCase();
     var word = text.split(' ');
+    var negative=0;
+    var positive=0;
     var total=0;
-    var amount = word.length;
     for (var i=0;i< word.length;i++){
       //check if contained
       if (word[i] in words){
-        total+=parseInt(words[word[i]]);
-        //console.log(parseInt(words[word[i]]));
-      }
-      //otherwise dont add anything and subtract from total wrods;
-      else{
-        amount-=1;
+        var temp=parseInt(words[word[i]]);
+        total+=Math.abs(temp);
+        if (temp>0){
+          positive+=temp;
+        }
+        else{
+          negative-=temp;
+        }
       }
     }
-    if(amount<=0){
-      return 0;
+    if(total==0){
+      return [0,0];
     }
     else{
-      total = total*1.0/amount;
-      return total;
-
+      return [positive*1.0/total,negative*1.0/total];
     }
   }
 
@@ -81,3 +83,6 @@ function Engine(){
     return keySorted.slice(0,Math.min(numberOfWords, keySorted.length));
   }
 }
+var engine= new Engine();
+engine.loadMap();
+console.log(engine.analyze("fuck love"));
