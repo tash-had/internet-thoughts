@@ -27,7 +27,7 @@ Ever wonder what the internet thinks about a certain topic, issue, or person? We
 - requires info through different platforms
 
 
-[]hosting 
+[x]hosting 
  - domain + host 
 
 []presentation 
