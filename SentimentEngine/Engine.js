@@ -7,6 +7,8 @@ function Engine(){
   //NEEDTODEFINE
   words ={};
   //this.allText;
+  this.redditComments = []
+  this.tumblrReplies = []
 
   //Method to add individual elements to hashmap
   //this.
@@ -82,4 +84,39 @@ function Engine(){
     //returns a list of the most used words
     return keySorted.slice(0,Math.min(numberOfWords, keySorted.length));
   }
+
+  this.getRedditComments = function(query){
+    this.redditComments = apiRequest('json', "https://api.pushshift.io/reddit/search/comment?q="+query+"&limit=80")
+  }
+  this.parseRedditComments = function(){
+    var data = this.redditComments.responseJSON.data;
+    this.redditComments = [];
+    for(var i=0;i<data.length;i++){
+      this.redditComments.push(data[i].body);
+    } 
+  }
+  this.getTumblrPosts = function(query){
+    this.tumblrReplies = apiRequest('jsonp', "http://api.tumblr.com/v2/tagged?tag="+query+"&api_key=" + "3abqBb95f1TzbpZXWdzedYNzsQLQxU99chnHb2KCBwpxS2SXG8&limit=50&reblog_info=True&notes_info=True");
+  }
+  this.parseTumblrReplies = function(){
+    var dataTum = this.tumblrReplies.responseJSON.response;
+    this.tumblrReplies = []
+    for(var i=0;i<dataTum.length;i++)
+      this.tumblrReplies.push(dataTum[i].summary)
+  }
+}
+function apiRequest(format, FINAL_URL) {
+    var response;
+    try {
+        response = $.ajax({
+            url: FINAL_URL,
+            dataType: format,
+            type: 'GET',
+            cache: false
+        });
+    } catch (err) {
+        errorHandle("Request Error. Log| " + err);
+    } finally {
+        return response;
+    }
 }
