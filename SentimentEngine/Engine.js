@@ -54,7 +54,7 @@ function Engine(){
       }
     }
     if(total==0){
-      return [0,0];
+      return [-1,-1];
     }
     else{
       return [positive*1.0/total,negative*1.0/total];
