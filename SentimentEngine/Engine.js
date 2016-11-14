@@ -7,6 +7,8 @@ function Engine(){
   //NEEDTODEFINE
   words ={};
   //this.allText;
+  this.redditComments = []
+  this.tumblrReplies = []
 
   //Method to add individual elements to hashmap
   //this.
@@ -33,29 +35,31 @@ function Engine(){
 
 
   //feed in twitter as text
+  //returns {positive, negative}
   this.analyze=function(text){
     text=text.toLowerCase();
     var word = text.split(' ');
+    var negative=0;
+    var positive=0;
     var total=0;
-    var amount = word.length;
     for (var i=0;i< word.length;i++){
       //check if contained
       if (word[i] in words){
-        total+=parseInt(words[word[i]]);
-        //console.log(parseInt(words[word[i]]));
-      }
-      //otherwise dont add anything and subtract from total wrods;
-      else{
-        amount-=1;
+        var temp=parseInt(words[word[i]]);
+        total+=Math.abs(temp);
+        if (temp>0){
+          positive+=temp;
+        }
+        else{
+          negative-=temp;
+        }
       }
     }
-    if(amount<=0){
-      return 0;
+    if(total==0){
+      return [-1,-1];
     }
     else{
-      total = total*1.0/amount;
-      return total;
-
+      return [positive*1.0/total,negative*1.0/total];
     }
   }
 
@@ -80,6 +84,39 @@ function Engine(){
     //returns a list of the most used words
     return keySorted.slice(0,Math.min(numberOfWords, keySorted.length));
   }
+
+  this.getRedditComments = function(query){
+    this.redditComments = apiRequest('json', "https://api.pushshift.io/reddit/search/comment?q="+query+"&limit=80")
+  }
+  this.parseRedditComments = function(){
+    var data = this.redditComments.responseJSON.data;
+    this.redditComments = [];
+    for(var i=0;i<data.length;i++){
+      this.redditComments.push(data[i].body);
+    } 
+  }
+  this.getTumblrPosts = function(query){
+    this.tumblrReplies = apiRequest('jsonp', "https://api.tumblr.com/v2/tagged?tag="+query+"&api_key=" + "3abqBb95f1TzbpZXWdzedYNzsQLQxU99chnHb2KCBwpxS2SXG8&limit=50&reblog_info=True&notes_info=True");
+  }
+  this.parseTumblrReplies = function(){
+    var dataTum = this.tumblrReplies.responseJSON.response;
+    this.tumblrReplies = []
+    for(var i=0;i<dataTum.length;i++)
+      this.tumblrReplies.push(dataTum[i].summary)
+  }
 }
-var engine=new Engine();
-engine.loadMap();
+function apiRequest(format, FINAL_URL) {
+    var response;
+    try {
+        response = $.ajax({
+            url: FINAL_URL,
+            dataType: format,
+            type: 'GET',
+            cache: false
+        });
+    } catch (err) {
+        errorHandle("Request Error. Log| " + err);
+    } finally {
+        return response;
+    }
+}

@@ -1,8 +1,0 @@
-Twitter API creds:
-Consumer Key (API Key)	XtnuVdCfdD9Ys3nD8DaragTNS
-Consumer Secret (API Secret)	XKJwmxcurpBT8TJPKwcZAVsXnvE8qTu2FTD5WAF9fOezi5iwjL
-	
-
-
-Access Token	2181207784-qlewvivtrePya4boXrGexzTfBnX7MmkT8CwPISq
-Access Token Secret	hlIpItCXae7tUfT6UmIR9eOz5lzksz5tLzdzTR2mCD8Ui

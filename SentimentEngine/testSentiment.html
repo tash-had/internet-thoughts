@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Test</title>
+</head>
+<body>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://cdn.rawgit.com/tash-had/apiheapjs/master/apiheap.min.js"></script>
+<script type="text/javascript" src="Engine.js"></script>
+<button onclick="myFunction();">My Btn</button>
+
+<button onclick="myFunction2();">My B2tn</button>
+
+<script type="text/javascript">
+ var e = new Engine(); 
+ e.loadMap();
+ var d; 
+ function myFunction(){
+      //e.getRedditComments("trump");
+      e.getTumblrPosts("trump");
+
+
+    }
+    function myFunction2() {
+      e.parseTumblrReplies()
+
+      console.log(e.tumblrReplies);
+    }
+
+
+
+
+  </script>
+  </html>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="shortcut icon" href="/img/Favicon.ico" />
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
   <title>Starter Template - Materialize</title>
@@ -9,10 +10,90 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <script type="text/javascript" src="js/paper-full.min.js"></script>
+  <script type="text/paperscript" canvas="canvas">
+    // The amount of symbol we want to place;
+    var count = 100;
+
+    // Create a symbol, which we will use to place instances of later:
+    var path = new Path.Circle({
+        center: new Point(0, 0),
+        radius: 30,
+        fillColor: '#FFECB3',
+        strokeColor: 'white'
+    });
+
+    var symbol = new SymbolDefinition(path);
+
+    // Place the instances of the symbol:
+    for (var i = 0; i < count; i++) {
+        // The center position is a random point in the view:
+        var center = Point.random() * view.size;
+        var placed = symbol.place(center);
+        var scale = (i + 1) / count;
+        placed.scale(scale);
+        placed.data.vector = new Point({
+            angle: Math.random() * 360,
+            length : scale * Math.random() / 5
+        });
+    }
+
+    var vector = new Point({
+        angle: 45,
+        length: 0
+    });
+
+    var mouseVector = vector.clone();
+
+    function onMouseMove(event) {
+        mouseVector = view.center - event.point;
+    }
+
+    // The onFrame function is called up to 60 times a second:
+    function onFrame(event) {
+      // Run through the active layer's children list and change
+      // the position of the placed symbols:
+      for (var i = 0; i < count; i++) {
+        var item = project.activeLayer.children[i];
+
+        // Move the item 1/20th of its width to the right. This way
+        // larger circles move faster than smaller circles:
+        item.position.x += item.bounds.width / 20;
+
+        // If the item has left the view on the right, move it back
+        // to the left:
+        if (item.bounds.left > view.size.width) {
+          item.position.x = -item.bounds.width;
+        }
+      }
+    }
+
+    function keepInView(item) {
+        var position = item.position;
+        var itemBounds = item.bounds;
+        var bounds = view.bounds;
+        if (itemBounds.left > bounds.width) {
+            position.x = -item.bounds.width;
+        }
+
+        if (position.x < -itemBounds.width) {
+            position.x = bounds.width + itemBounds.width;
+        }
+
+        if (itemBounds.top > view.size.height) {
+            position.y = -itemBounds.height;
+        }
+
+        if (position.y < -itemBounds.height) {
+            position.y = bounds.height  + itemBounds.height / 2;
+        }
+    }
+    </script>
 </head>
 <body>
-  <nav class="light-blue lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
+  <canvas id="canvas" resize hidpi="off" style="background:black"></canvas>
+  <nav class="light-blue lighten-1" role="navigation" id="navBar">
+    <div class="nav-wrapper container">
       <ul class="right hide-on-med-and-down">
         <li><a href="#">Navbar Link</a></li>
       </ul>
@@ -26,12 +107,15 @@
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
       <br><br>
-      <h1 class="header center orange-text">Sentiment Hack</h1>
       <div class="row center">
-        <h5 class="header col s12 light">For when you're too lazy to feel....</h5>
+        <div class="blackBack"></div>
+          <img id="logoImg" src="https://github.com/tash-had/YHack_2016/blob/master/views/photos/logoInnerShadow.png?raw=true" height="250" width="500">
       </div>
       <div class="row center">
-        <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light orange">Get Started</a>
+        <form action ="/results" method = "GET" >
+         <input type = "text", placeholder = "Search..." name = "input"></input><br><br>
+         <button id="searchBtn" class="btn-large waves-effect waves-light orange">SHOW ME INFO</button>
+        </form>
       </div>
       <br><br>
 
@@ -41,7 +125,8 @@
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.min.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
   <script src="js/init.js"></script>
+</body>
 
-  </body>
 </html>
