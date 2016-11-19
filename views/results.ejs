@@ -192,13 +192,12 @@
     var getReloads = localStorage.getItem("numReloads");
 
     if(!(parseInt(getReloads)>0)){
-      location.reload();
+      //location.reload();
       if(getReloads===null){
         getReloads = 0;  
       }
       setTimeout(function(){
         localStorage.setItem("numReloads", parseInt(getReloads)+1);
-
       }, 4000);
     }
     function twitterAnalysis(){
@@ -466,6 +465,22 @@ $(document).ready(function(){
     });
 });
 </script>
+  <script type="text/javascript">
+      var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+    // Firefox 1.0+
+    var isFirefox = typeof InstallTrigger !== 'undefined';
+    // Safari 3.0+ "[object HTMLElementConstructor]" 
+    var isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0 || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || safari.pushNotification);
+    // Internet Explorer 6-11
+    var isIE = /*@cc_on!@*/false || !!document.documentMode;
+    // Edge 20+
+    var isEdge = !isIE && !!window.StyleMedia;
+    // Chrome 1+
+    var isChrome = !!window.chrome && !!window.chrome.webstore;
+    // Blink engine detection
+    var isBlink = (isChrome || isOpera) && !!window.CSS;
 
+    if(isOpera || isFirefox || isSafari || isIE || isEdge){alert("Internet-thoughts is optimized for Google Chrome. Please switch your browser.");}
+  </script>
 
 </html>
