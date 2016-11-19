@@ -191,6 +191,13 @@
     var Pscore, Nscore, engine, redditRerun = false, tumblrRerun = false, searched = $("#givenQuery").html();
     var getReloads = localStorage.getItem("numReloads");
 
+    if(!(parseInt(getReloads)>0)){
+      location.reload();
+      if(getReloads===null){
+        getReloads = 0;  
+      }
+      localStorage.setItem("numReloads", parseInt(getReloads)+1);
+    }
     function twitterAnalysis(){
         var data = $("#tweetContainer").html().trim().replace(/RT/g, "").replace(/\s+/g, ' ').replace(/[^a-zA-Z-]/g, ' ').replace(/-/g, " ");
         $("#tweetContainer").hide();
