@@ -4,14 +4,20 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
 	<title>InternetThoughts</title>
-	<link rel="shortcut icon" type="img/ico" href="https://ucarecdn.com/b5df1d7d-a0ae-413e-9925-ee21a133bc0a/Favicon.ico">
+	<link rel="shortcut icon" type="img/png" href="https://ucarecdn.com/1c101c25-b875-4e4d-9a90-9cb40c2a20d3/Favicon.png">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
 	<link href="https://ucarecdn.com/aff15d85-ab75-416b-981b-2a7126a7a157/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 	<script type="text/javascript" src="https://ucarecdn.com/e65a54c9-2b6d-4c35-95d0-805fb8ba988b/paperfullmin.js"></script>
+	<style type="text/css">
+		.dialog nav{
+			background-color: white;
+			box-shadow: none;
+		}
+	</style>
 	<script type="text/paperscript" canvas="canvas">
 		// The amount of symbol we want to place;
-		var count = 80;
+		var count = 100;
 
 		// Create a symbol, which we will use to place instances of later:
 		var path = new Path.Circle({
@@ -94,10 +100,12 @@ position.y = bounds.height  + itemBounds.height / 2;
     <div class="nav-wrapper container">
       <ul class="right hide-on-med-and-down">
         <li><a href="https://github.com/tash-had/internet-thoughts" target="_blank">View Source</a></li>
+        <li><a href="javascript:void(0);" onclick="aboutClick();">About</a></li>
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
         <li><a href="https://github.com/tash-had/internet-thoughts" target="_blank">View Source</a></li>
+        <li><a href="javascript:void(0);" onclick="aboutClick();">About</a></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
@@ -123,6 +131,7 @@ position.y = bounds.height  + itemBounds.height / 2;
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
 <script src="https://ucarecdn.com/67535bfa-0aab-4480-b849-924b27dbdaa1/init.js"></script>
+<script src="https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.10/dist/js/alertify.js"></script>
 <script type="text/javascript">
 	var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
     // Firefox 1.0+
@@ -151,7 +160,11 @@ position.y = bounds.height  + itemBounds.height / 2;
 		$("#logoImg").attr("height", "40%");
 		$("#searchBar").css("width", "80%");  
 	}
+	function aboutClick(){
+		alertify.alert("Internet-thoughts searches the internet for a query, analyzes the data it finds using a sentiment analysis engine, and returns the general outlook on the query based on the data. Internet-thoughts reads through tons of data from Twitter, Reddit and Tumblr to dermine sentiment. Internet-thoughts was built for YHack 2016 at Yale University. View the repo <a href='https://github.com/tash-had/internet-thoughts' target='_blank'>here</a>");
+	}
 </script>
+
 </body>
 
 </html>
