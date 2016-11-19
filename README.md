@@ -31,3 +31,6 @@ Ever wonder what the internet thinks about a certain topic, issue, or person? We
   * Use data from movie reviews, other sources 
   * Use data from surely positive/surely negative sources (positive news, etc)
   * Use letter cases before converting to lowercase 
+
+  # License
+  Internet-thoughts is licensed under [MIT](https://opensource.org/licenses/MIT)
