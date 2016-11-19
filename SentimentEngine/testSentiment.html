@@ -18,20 +18,11 @@
  var e = new Engine(); 
  e.loadMap();
  var d; 
- function myFunction(){
-      //e.getRedditComments("trump");
-      e.getTumblrPosts("trump");
 
-
-    }
-    function myFunction2() {
-      e.parseTumblrReplies()
-
-      console.log(e.tumblrReplies);
-    }
-
-
-
+ $(document).ready(function(){
+  e.getRedditComments().done(e.parseRedditComments); 
+  console.log(e.redditComments); 
+ });
 
   </script>
   </html>
