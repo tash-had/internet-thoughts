@@ -196,7 +196,10 @@
       if(getReloads===null){
         getReloads = 0;  
       }
-      localStorage.setItem("numReloads", parseInt(getReloads)+1);
+      setTimeout(function(){
+        localStorage.setItem("numReloads", parseInt(getReloads)+1);
+
+      }, 4000);
     }
     function twitterAnalysis(){
         var data = $("#tweetContainer").html().trim().replace(/RT/g, "").replace(/\s+/g, ' ').replace(/[^a-zA-Z-]/g, ' ').replace(/-/g, " ");
