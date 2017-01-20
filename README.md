@@ -2,13 +2,13 @@
 
 ![alt text](https://github.com/tash-had/YHack_2016/blob/master/views/photos/logoInnerShadow.png?raw=true "Oh my.... what a beautiful Readme")
 
-[LIVE: http://internetthoughts.net/](http://internetthoughts.net/)
+#[LIVE: http://internetthoughts.net/](http://internetthoughts.net/)
 
-Ever wonder what the internet thinks about a certain topic, issue, or person? Well, what better way to gauge the internet's popular opinion than by mass analyzing things said about that topic? Just enter a search query and a sentiment analysis of tons of data in relation to that topic will be returned to you. Find out where you stand amongst the internet! Internet-thoughts was built for YHack 2016 at Yale University. 
+Ever wonder what the internet thinks about a certain topic, issue, or person? Well, what better way to gauge the internet's popular opinion than by mass analyzing things said about that topic? Just enter a search query and a sentiment analysis of tons of data in relation to that topic will be returned to you. Find out where you stand amongst the internet! Internet-thoughts was built for YHack 2016 at Yale University.
 
-# Team 
+# Team
 * Robert Xu | robxu.me
-* Jonathan Sun | jonathon.solar 
+* Jonathan Sun | jonathon.solar
 * Tash-had Saqif | tash-had.com
 
 # The magic behind it all
@@ -27,15 +27,20 @@ Ever wonder what the internet thinks about a certain topic, issue, or person? We
 * NodeJs, JavaScript, Embedded JavaScript, jQuery, PaperScript, HTMl, CSS, Heroku (hosting)
 
 # TODO  
-* Save data to database for analysis of change over time
-* Frequent words Wordmap 
-* Context
-  * Count exclamation marks 
-  * Count consecutively repeated letters 
-  * Compare with long term data from database 
-  * Use data from movie reviews, other sources 
-  * Use data from surely positive/surely negative sources (positive news, etc)
-  * Use letter cases before converting to lowercase 
+- [ ] Save data to database for analysis of change over time
+- [ ] Frequent words Wordmap
+- [ ] Context
+  - [ ] Count exclamation marks
+  - [ ] Count consecutively repeated letters
+  - [ ] Compare with long term data from database
+  - [ ] Use data from movie reviews, other sources
+  - [ ] Use data from surely positive/surely negative sources (positive news, etc)
+  - [ ] Use letter cases before converting to lowercase
+- [ ] Markov chains to predict search queries
+
+# TODOs not related to Dev
+- [ ] Add travis build buttons to documentation
+- [ ] Include screenshots of usability
 
 # License
 Internet-thoughts is licensed under [MIT](https://opensource.org/licenses/MIT)
