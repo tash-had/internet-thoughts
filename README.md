@@ -27,15 +27,20 @@ Ever wonder what the internet thinks about a certain topic, issue, or person? We
 * NodeJs, JavaScript, Embedded JavaScript, jQuery, PaperScript, HTMl, CSS, Heroku (hosting)
 
 # TODO  
-* Save data to database for analysis of change over time
-* Frequent words Wordmap
-* Context
-  * Count exclamation marks
-  * Count consecutively repeated letters
-  * Compare with long term data from database
-  * Use data from movie reviews, other sources
-  * Use data from surely positive/surely negative sources (positive news, etc)
-  * Use letter cases before converting to lowercase
+- [ ] Save data to database for analysis of change over time
+- [ ] Frequent words Wordmap
+- [ ] Context
+  - [ ] Count exclamation marks
+  - [ ] Count consecutively repeated letters
+  - [ ] Compare with long term data from database
+  - [ ] Use data from movie reviews, other sources
+  - [ ] Use data from surely positive/surely negative sources (positive news, etc)
+  - [ ] Use letter cases before converting to lowercase
+- [ ] Markov chains to predict search queries
+
+# TODOs not related to Dev
+- [ ] Add travis build buttons to documentation
+- [ ] Include screenshots of usability
 
 # License
 Internet-thoughts is licensed under [MIT](https://opensource.org/licenses/MIT)
