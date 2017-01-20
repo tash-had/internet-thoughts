@@ -3,15 +3,16 @@
 
 <head>
     <title>InternetThoughts</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.rawgit.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.min.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="
-https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.0/css/hover-min.css">
-	<script src="https://ucarecdn.com/2e6e912f-462d-4f2d-ba0f-a786335793e0/jqcloudmin.js"></script>
-	<link rel="stylesheet" href="https://ucarecdn.com/b5c5490b-b4e8-4205-a4c8-891dc2b3d8d6/jqcloudmin.css">
-	<script src="https://ucarecdn.com/5e9f28e6-27b9-417d-8e6c-a748e07329b0/Engine.js"></script>
+    https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.0/css/hover-min.css">
+    <script src="https://ucarecdn.com/f4165457-0a5d-4373-aa3f-316861316b5e/Engine.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://ucarecdn.com/439053f3-5f5e-45ae-8a5c-b81129aca227/fakeLoader.css">
+    <link rel="shortcut icon" type="img/png" href="https://ucarecdn.com/1c101c25-b875-4e4d-9a90-9cb40c2a20d3/Favicon.png">
 
     <style type="text/css">
         h1 {
@@ -22,59 +23,63 @@ https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.0/css/hover-min.css">
         }
         
         #container {
-        	width: 100%;
-        	height: 100px;
-        	margin: 2%;
-        	border-radius: 5px;
+            width: 100%;
+            height: 100px;
+            margin: 2%;
+            border-radius: 5px;
 
         }
         
         #container1 {
-        	width: 100%;
-        	height: 100px;
-        	margin: 2%;
-        }
-        #containerFOR3 {
-        	width: 100%;
-        	height: 100px;
-        	margin: 2%;
-        	border-radius: 5px;
-
-        }
-        #containerFOR31 {
-        	width: 100%;
-        	height: 100px;
-        	margin: 2%;
+            width: 100%;
+            height: 100px;
+            margin: 2%;
         }
         
         #containerFOR2 {
-        	width: 100%;
-        	height: 100px;
-        	margin: 2%;
+            width: 100%;
+            height: 100px;
+            margin: 2%;
         }
         #containerFOR21 {
-        	width: 100%;
-        	height: 100px;
-        	margin: 2%;
-        	border-radius: 5px;
+            width: 100%;
+            height: 100px;
+            margin: 2%;
+            border-radius: 5px;
+
+        }
+        #containerFOR3 {
+            width: 100%;
+            height: 100px;
+            margin: 2%;
+
+        }
+        #containerFOR31 {
+            width: 100%;
+            height: 100px;
+            margin: 2%;
+            border-radius: 5px;
 
         }
         
         .platformTitle{
-        	text-align: center;
+            text-align: center;
         }
         
         #butt {
-            text-align: center;
+            text-align: right;
             display: block;
-            padding-top: 20px;
-            font-family: 'Ubuntu', sans-serif;
             color: #262d3a;
+        }
+        #butt p a{
+          font-size: 1.5em !important;
+          text-transform: capitalize;
+          font-weight: lighter;
+          font-family: 'Ubuntu', sans-serif;
         }
         
         .labels {
             font-family: 'Ubuntu', sans-serif;
-            text-align: center;
             margin: 2%;
             padding: auto;
             font-size: 30px;
@@ -92,291 +97,242 @@ https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.0/css/hover-min.css">
         
         body {
             background-color: #eadedf;
+            overflow-x: hidden;
         }
         .barClass{
-        	display: block !important;
-        	margin: 10%;
+            margin-left: 10%;
         }
-        #graphBtnContainer{
-        	text-align: center;
-        }
-        .button-menu {
-        	background-color: #4CAF50; /* Green */
-        	border: none;
-        	color: white;
-        	padding: 15px 32px;
-        	text-align: center;
-        	text-decoration: none;
-        	display: inline-block;
-        	width: 40%;
-        	font-size: 16px;
-        	background-color: #2196fe;
-
+        .noDataSpan{
+            color: red; 
         }
     </style>
 </head>
 <body>
-<div class="jumbotron">
-    <h1 style="color: white">The internet's thoughts about <strong><span id="givenQuery"><%=search%></span></strong> </h1>
-</div>
-<div id="graphBtnContainer">
-<button class="button-menu" onclick="twitterAnalysis();" id="twitterBtn">Twitter Analysis</button>
-<button class="button-menu" onclick="redditAnalysis();" id="redditBtn">Reddit Analysis</button>
-<button class="button-menu" onclick="tumblrAnalysis();" id="tumblrBtn">Tumblr Analysis</button>
-</div>
-
-<div id="tweetContainer" style="color:transparent;">
-    <% for(var i = 0;i<resultsData.statuses.length;i++){ %>
-        <%= resultsData.statuses[i].text %>
-            <% }%>
-
-</div>
-<div class="row" id="infoParent">
-<h2 class="platformTitle">Twitter Data</h2>
-<div class="col-lg-6">
-	<div class="container" id="pBar">
-    <div class="row">
-        <div class="col-lg-1 container labels"><span id="pNum">#</span>Positive</div>
-        <div id="container" class="barClass container col-lg-11"></div>
-    </div>
-</div>
-
-<div class="container" id="nBar">
-    <div class="row">
-
-        <div class="col-lg-1 container labels"><span id="nNum">#</span>Negative</div>
-        <div id="container1" , class="barClass container col-lg-11 labels"></div>
+    <div class="fakeloader"></div>
+    <div class="jumbotron">
+        <h1 style="color: white">The internet's thoughts about <strong><span id="givenQuery"><%=search%></span></strong> </h1>
     </div>
 
-</div>
-</div>	
-</div>
-<div class="row" id="infoParent2">
-<h2 class="platformTitle">Reddit Data</h2>
-<div class="col-lg-6">
-	<div class="container" id="pBar2">
-    <div class="row">
-        <div class="col-lg-1 container labels"><span id="pNum2">#</span>Positive</div>
-        <div id="containerFOR2" class="barClass container col-lg-11"></div>
+    <div id="tweetContainer" style="color:transparent;">
+        <% for(var i = 0;i<resultsData.statuses.length;i++){ %>
+            <%= resultsData.statuses[i].text %>
+                <% } %>
     </div>
-</div>
-
-<div class="container" id="nBar2">
-    <div class="row">
-
-        <div class="col-lg-1 container labels"><span id="nNum22">#</span>Negative</div>
-        <div id="containerFOR21" , class="barClass container col-lg-11 labels"></div>
+    <div class="container" id="butt">
+        <p><a href="/" class="btn btn-primary btn-lg button hvr-grow" role="button" style="background-color: #262d3a">Search again</a></p>
     </div>
+    <div class="row" id="infoParent">
+        <h2 class="platformTitle" id="twitterHeader">Twitter Data</h2>
+        <div class="col-lg-6">
+            <div class="container" id="pBar">
+                <div class="row">
+                    <div class="col-lg-1 container labels"><span id="pNum">#</span>Positive</div>
+                    <div id="container" class="barClass container col-lg-11"></div>
+                </div>
+            </div>
 
-</div>
-</div>	
-</div>
-<div class="row" id="infoParent3">
-<h2 class="platformTitle">Tumblr Data</h2>
-<div class="col-lg-6">
-	<div class="container" id="pBar3">
-    <div class="row">
-        <div class="col-lg-1 container labels"><span id="pNum3">#</span>Positive</div>
-        <div id="containerFOR3" class="barClass container col-lg-11"></div>
+            <div class="container" id="nBar">
+                <div class="row">
+                    <div class="col-lg-1 container labels"><span id="nNum">#</span>Negative</div>
+                    <div id="container1" , class="barClass container col-lg-11 labels"></div>
+                </div>
+
+            </div>
+        </div>
     </div>
-</div>
+    <div class="row" id="infoParent2">
+        <h2 class="platformTitle" id="redditHeader">Reddit Data</h2>
+        <div class="col-lg-6">
+            <div class="container" id="pBar2">
+                <div class="row">
+                    <div class="col-lg-1 container labels"><span id="pNum2">#</span>Positive</div>
+                    <div id="containerFOR2" class="barClass container col-lg-11"></div>
+                </div>
+            </div>
 
-<div class="container" id="nBar3">
-    <div class="row">
+            <div class="container" id="nBar2">
+                <div class="row">
 
-        <div class="col-lg-1 container labels"><span id="nNum33">#</span>Negative</div>
-        <div id="containerFOR31" , class="barClass container col-lg-11 labels"></div>
+                    <div class="col-lg-1 container labels"><span id="nNum22">#</span>Negative</div>
+                    <div id="containerFOR21" , class="barClass container col-lg-11 labels"></div>
+                </div>
+            </div>
+        </div>
     </div>
+    <div class="row" id="infoParent3">
+        <h2 class="platformTitle" id="tumblrHeader">Tumblr Data</h2>
+        <div class="col-lg-6">
+            <div class="container" id="pBar3">
+                <div class="row">
+                    <div class="col-lg-1 container labels"><span id="pNum3">#</span>Positive</div>
+                    <div id="containerFOR3" class="barClass container col-lg-11"></div>
+                </div>
+            </div>
 
-</div>
-</div>	
-</div>
+            <div class="container" id="nBar3">
+                <div class="row">
 
-<div class="container" id="butt">
-    <p><a href="/" class="btn btn-primary btn-lg button hvr-grow" role="button" style="background-color: #262d3a">Search again</a></p>
-</div>
+                    <div class="col-lg-1 container labels"><span id="nNum33">#</span>Negative</div>
+                    <div id="containerFOR31" , class="barClass container col-lg-11 labels"></div>
+                </div>
 
-
-
-</body>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript" src="https://ucarecdn.com/a485016a-b540-462a-8523-4b7844810b78/fakeLoadermin.js"></script>
 <script type="text/javascript">
-    var data;
-    var score;
-    var Pscore;
-    var Nscore;
-    var engine; 
-    var searched = $("#givenQuery").html();
+        $(".fakeloader").fakeLoader({
+        timeToHide: 2500,
+        bgColor: "#333",
+        spinner: "spinner6"
+    });
+</script>
+</body>
 
+<script type="text/javascript">
+    var Pscore, Nscore, engine, redditRerun = false, tumblrRerun = false, searched = $("#givenQuery").html();
+    var getReloads = localStorage.getItem("numReloads");
 
-    
+    if(!(parseInt(getReloads)>0)){
+      //location.reload();
+      if(getReloads===null){
+        getReloads = 0;  
+      }
+      setTimeout(function(){
+        localStorage.setItem("numReloads", parseInt(getReloads)+1);
+      }, 4000);
+    }
     function twitterAnalysis(){
-    	$("#twitterBtn").hide();
-    	data = $("#tweetContainer").html().trim().replace(/RT/g, "").replace(/\s+/g, ' ').replace(/[^a-zA-Z-]/g, ' ').replace(/-/g, " ");
-    	data = data.toLowerCase();
-    	$("#tweetContainer").hide();
+        var data = $("#tweetContainer").html().trim().replace(/RT/g, "").replace(/\s+/g, ' ').replace(/[^a-zA-Z-]/g, ' ').replace(/-/g, " ");
+        $("#tweetContainer").hide();
 
-    //console.log(data);
+        engine = new Engine();
+        engine.loadMap();
 
-    engine = new Engine();
-    engine.loadMap();
+        Pscore = Math.round(engine.analyze(data)[0] * 100);
+        Nscore = Math.round(engine.analyze(data)[1] * 100);
 
-    var freqWords = engine.getTopWords(data, 15);
+        $("#pNum").text(Pscore + "% ");
+        $("#nNum").text(Nscore + "% ");
+        var width1 = (Pscore / 100) * 100;
+        $("#container").css("width", width1 + "%");
+        var width2 = (Nscore / 100) * 100;
+        $("#container1").css("width", width2 + "%");
 
+        var bar = new ProgressBar.Line(container, {
+           strokeWidth: 4,
+           easing: 'easeInOut',
+           duration: 3000,
+           color: '#FFEA82',
+           trailColor: '#eee',
+           trailWidth: 1,
+           svgStyle: {
+              width: '100%',
+              height: '100%'
+          },
+          from: {
+              color: '#FFEA82'
+          },
+          to: {
+              color: '#c6434a'
+          },
+          step: (state, bar) => {
+              bar.path.setAttribute('stroke', state.color);
+          }
+      });
 
-    Pscore = Math.round(engine.analyze(data)[0] * 100);
-    //console.log(Pscore);
-    Nscore = Math.round(engine.analyze(data)[1] * 100);
-    //console.log(Nscore);
+        var bar1 = new ProgressBar.Line(container1, {
+           strokeWidth: 4,
+           easing: 'easeInOut',
+           duration: 3000,
+           color: '#236add',
+           trailColor: '#eee',
+           trailWidth: 1,
+           svgStyle: {
+              width: '100%',
+              height: '100%'
+          },
+          from: {
+              color: '#236add'
+          },
+          to: {
+              color: '#0f4296'
+          },
+          step: (state, bar1) => {
+              bar1.path.setAttribute('stroke', state.color);
+          }
+      });
 
-
-    $("#pNum").text(Pscore + "% ");
-    $("#nNum").text(Nscore + "% ");
-    var width1 = (Pscore / 100) * 100;
-    $("#container").css("width", width1 + "%");
-    var width2 = (Nscore / 100) * 100;
-    $("#container1").css("width", width2 + "%");
-
-    var bar = new ProgressBar.Line(container, {
-    	strokeWidth: 4,
-    	easing: 'easeInOut',
-    	duration: 3000,
-    	color: '#FFEA82',
-    	trailColor: '#eee',
-    	trailWidth: 1,
-    	svgStyle: {
-    		width: '100%',
-    		height: '100%'
-    	},
-    	from: {
-    		color: '#FFEA82'
-    	},
-    	to: {
-    		color: '#c6434a'
-    	},
-    	step: (state, bar) => {
-    		bar.path.setAttribute('stroke', state.color);
-    	}
-    });
-
-    var bar1 = new ProgressBar.Line(container1, {
-    	strokeWidth: 4,
-    	easing: 'easeInOut',
-    	duration: 3000,
-    	color: '#236add',
-    	trailColor: '#eee',
-    	trailWidth: 1,
-    	svgStyle: {
-    		width: '100%',
-    		height: '100%'
-    	},
-    	from: {
-    		color: '#236add'
-    	},
-    	to: {
-    		color: '#0f4296'
-    	},
-    	step: (state, bar1) => {
-    		bar1.path.setAttribute('stroke', state.color);
-    	}
-    });
-
-
-    bar.animate(1.0);
-    bar1.animate(1.0);
-    engine.getRedditComments(searched);
-
-} 
+        bar.animate(1.0);
+        bar1.animate(1.0);
+    } 
     function redditAnalysis(){
-  	$("#redditBtn").hide();
-    engine.parseRedditComments();
-    
+      var data = engine.redditComments.toString();
 
-//    var engine = new Engine();
-  //  engine.loadMap();
-
-   	var data = engine.redditComments.toString().toLowerCase(); 
+      Pscore = Math.round(engine.analyze(data)[0] * 100);
+      Nscore = Math.round(engine.analyze(data)[1] * 100);
 
 
-    Pscore = Math.round(engine.analyze(data)[0] * 100);
-    //console.log(Pscore);
-    Nscore = Math.round(engine.analyze(data)[1] * 100);
-    //console.log(Nscore);
+      $("#pNum2").text(Pscore + "% ");
+      $("#nNum22").text(Nscore + "% ");
+      var width1 = (Pscore / 100) * 100;
+      $("#containerFOR2").css("width", width1 + "%");
+      var width2 = (Nscore / 100) * 100;
+      $("#containerFOR21").css("width", width2 + "%");
 
+      var bar = new ProgressBar.Line(containerFOR2, {
+       strokeWidth: 4,
+       easing: 'easeInOut',
+       duration: 3000,
+       color: '#FFEA82',
+       trailColor: '#eee',
+       trailWidth: 1,
+       svgStyle: {
+          width: '100%',
+          height: '100%'
+      },
+      from: {
+          color: '#FFEA82'
+      },
+      to: {
+          color: '#c6434a'
+      },
+      step: (state, bar) => {
+          bar.path.setAttribute('stroke', state.color);
+      }
+  });
 
-    $("#pNum2").text(Pscore + "% ");
-    $("#nNum22").text(Nscore + "% ");
-    var width1 = (Pscore / 100) * 100;
-    $("#containerFOR2").css("width", width1 + "%");
-    var width2 = (Nscore / 100) * 100;
-    $("#containerFOR21").css("width", width2 + "%");
+      var bar1 = new ProgressBar.Line(containerFOR21, {
+       strokeWidth: 4,
+       easing: 'easeInOut',
+       duration: 3000,
+       color: '#236add',
+       trailColor: '#eee',
+       trailWidth: 1,
+       svgStyle: {
+          width: '100%',
+          height: '100%'
+      },
+      from: {
+          color: '#236add'
+      },
+      to: {
+          color: '#0f4296'
+      },
+      step: (state, bar1) => {
+          bar1.path.setAttribute('stroke', state.color);
+      }
+  });
 
-    var bar = new ProgressBar.Line(containerFOR2, {
-    	strokeWidth: 4,
-    	easing: 'easeInOut',
-    	duration: 3000,
-    	color: '#FFEA82',
-    	trailColor: '#eee',
-    	trailWidth: 1,
-    	svgStyle: {
-    		width: '100%',
-    		height: '100%'
-    	},
-    	from: {
-    		color: '#FFEA82'
-    	},
-    	to: {
-    		color: '#c6434a'
-    	},
-    	step: (state, bar) => {
-    		bar.path.setAttribute('stroke', state.color);
-    	}
-    });
+      bar.animate(1.0);
+      bar1.animate(1.0);
+  } 
 
-    var bar1 = new ProgressBar.Line(containerFOR21, {
-    	strokeWidth: 4,
-    	easing: 'easeInOut',
-    	duration: 3000,
-    	color: '#236add',
-    	trailColor: '#eee',
-    	trailWidth: 1,
-    	svgStyle: {
-    		width: '100%',
-    		height: '100%'
-    	},
-    	from: {
-    		color: '#236add'
-    	},
-    	to: {
-    		color: '#0f4296'
-    	},
-    	step: (state, bar1) => {
-    		bar1.path.setAttribute('stroke', state.color);
-    	}
-    });
-
-
-    bar.animate(1.0);
-    bar1.animate(1.0);
-    engine.getTumblrPosts(searched);
-    $("#tumblrBtn").show();
-
-} 
-    function tumblrAnalysis(){
-   	    $("#tumblrBtn").hide();
-    engine.parseTumblrReplies();
-    
-
-//    var engine = new Engine();
-  //  engine.loadMap();
-
-   	var data = engine.tumblrReplies.toString().toLowerCase(); 
-
+  function tumblrAnalysis(){
+    var data = engine.tumblrReplies.toString().toLowerCase(); 
 
     Pscore = Math.round(engine.analyze(data)[0] * 100);
-    //console.log(Pscore);
     Nscore = Math.round(engine.analyze(data)[1] * 100);
-    //console.log(Nscore);
-
 
     $("#pNum3").text(Pscore + "% ");
     $("#nNum33").text(Nscore + "% ");
@@ -386,59 +342,147 @@ https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.0/css/hover-min.css">
     $("#containerFOR31").css("width", width2 + "%");
 
     var bar = new ProgressBar.Line(containerFOR3, {
-    	strokeWidth: 4,
-    	easing: 'easeInOut',
-    	duration: 3000,
-    	color: '#FFEA82',
-    	trailColor: '#eee',
-    	trailWidth: 1,
-    	svgStyle: {
-    		width: '100%',
-    		height: '100%'
-    	},
-    	from: {
-    		color: '#FFEA82'
-    	},
-    	to: {
-    		color: '#c6434a'
-    	},
-    	step: (state, bar) => {
-    		bar.path.setAttribute('stroke', state.color);
-    	}
+        strokeWidth: 4,
+        easing: 'easeInOut',
+        duration: 3000,
+        color: '#FFEA82',
+        trailColor: '#eee',
+        trailWidth: 1,
+        svgStyle: {
+            width: '100%',
+            height: '100%'
+        },
+        from: {
+            color: '#FFEA82'
+        },
+        to: {
+            color: '#c6434a'
+        },
+        step: (state, bar) => {
+            bar.path.setAttribute('stroke', state.color);
+        }
     });
 
     var bar1 = new ProgressBar.Line(containerFOR31, {
-    	strokeWidth: 4,
-    	easing: 'easeInOut',
-    	duration: 3000,
-    	color: '#236add',
-    	trailColor: '#eee',
-    	trailWidth: 1,
-    	svgStyle: {
-    		width: '100%',
-    		height: '100%'
-    	},
-    	from: {
-    		color: '#236add'
-    	},
-    	to: {
-    		color: '#0f4296'
-    	},
-    	step: (state, bar1) => {
-    		bar1.path.setAttribute('stroke', state.color);
-    	}
-    });
+        strokeWidth: 4,
+        easing: 'easeInOut',
+        duration: 3000,
+        color: '#236add',
+        trailColor: '#eee',
+        trailWidth: 1,
+        svgStyle: {
+            width: '100%',
+            height: '100%'
+        },
+        from: {
+          color: '#236add'
+      },
+      to: {
+          color: '#0f4296'
+      },
+        step: (state, bar1) => {
+          bar1.path.setAttribute('stroke', state.color);
+      }
+  });
 
- 
     bar.animate(1.0);
     bar1.animate(1.0);
-
 } 
+function checkNullValues(){
+    var redditData = $("#pNum2").html().substring(0,1), tumblrData = $("#pNum3").html().substring(0,1); 
+
+    if(redditData==="-" && !redditRerun){
+        engine.getRedditComments(searched);
+        setTimeout(function(){
+            engine.parseRedditComments(); 
+            setTimeout(function(){
+                redditAnalysis(); 
+                $("#containerFOR2 svg path").last().hide(); 
+                $("#containerFOR21 svg path").last().hide(); 
+                $("#containerFOR2 svg").last().hide(); 
+                $("#containerFOR21 svg").last().hide(); 
+            }, 1500);
+        }, 3000);  
+        redditRerun = true; 
+    }
+    if(tumblrData==="-" && !tumblrRerun){
+        engine.getRedditComments(searched);
+        setTimeout(function(){
+            engine.parseRedditComments();
+            setTimeout(function(){
+                redditAnalysis();
+                $("#containerFOR2 svg path").last().hide();
+                $("#containerFOR21 svg path").last().hide();
+                $("#containerFOR2 svg").last().hide();
+                $("#containerFOR21 svg").last().hide();
+            }, 1500);
+        }, 3000);
+        tumblrRerun = true; 
+    }
+    setTimeout(function(){
+        if(redditRerun || tumblrRerun){
+            noDataFound(); 
+        }
+    },5000);
+}
+function noDataFound(){
+    var noDataMessage = "<span class='noDataSpan'> | Trouble Fetching Data.</span>"; 
+    console.log(getReloads);
+    if(!(parseInt(getReloads) >= 3)){
+        if(getReloads===null){
+            getReloads = 0;  
+        }
+        localStorage.setItem("numReloads", parseInt(getReloads)+1);
+        location.reload(); 
+    }else{
+       var twitterData = $("#pNum").html(), redditData = $("#pNum2").html(), tumblrData = $("#pNum3").html(); 
+
+    if(twitterData.toString().substring(0,1) === "-"){
+        $("#twitterHeader").html("Twitter" + noDataMessage); 
+    }
+    if(redditData.toString().substring(0,1) === "-"){
+        $("#redditHeader").html("Reddit" + noDataMessage); 
+    }
+    if(tumblrData.toString().substring(0,1) === "-"){
+        $("#tumblrHeader").html("Tumblr" + noDataMessage); 
+    }
+}
+}
 $(document).ready(function(){
-	twitterAnalysis();
-    $("#tumblrBtn").hide();
+    twitterAnalysis();
+    var redditGetFxn = engine.getRedditComments(searched); 
+    var tumblrGetFxn = engine.getTumblrPosts(searched); 
+
+    var bothGetsDone = $.when(redditGetFxn, tumblrGetFxn);
+    bothGetsDone.done(function(){
+        var redditParseFxn = engine.parseRedditComments();
+        var tumblrParseFxn = engine.parseTumblrReplies(); 
+
+        var allDataParsed = $.when(redditParseFxn, tumblrParseFxn);
+        allDataParsed.done(function(){
+            redditAnalysis(); 
+            tumblrAnalysis(); 
+            checkNullValues(); 
+        }); 
+    });
 });
 </script>
+  <script type="text/javascript">
+      var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+    // Firefox 1.0+
+    var isFirefox = typeof InstallTrigger !== 'undefined';
+    // Safari 3.0+ "[object HTMLElementConstructor]" 
+    var isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0 || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || safari.pushNotification);
+    // Internet Explorer 6-11
+    var isIE = /*@cc_on!@*/false || !!document.documentMode;
+    // Edge 20+
+    var isEdge = !isIE && !!window.StyleMedia;
+    // Chrome 1+
+    var isChrome = !!window.chrome && !!window.chrome.webstore;
+    // Blink engine detection
+    var isBlink = (isChrome || isOpera) && !!window.CSS;
 
+    if(isOpera || isFirefox || isSafari || isIE || isEdge){alert("Internet-thoughts is optimized for Google Chrome. Please switch your browser.");}
+  </script>
 
 </html>
