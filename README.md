@@ -8,7 +8,7 @@ Ever wonder what the internet thinks about a certain topic, issue, or person? We
 
 # Team
 * Robert Xu | robxu.me
-* Jonathan Sun | jonathon.solar
+* Jonathan Sun | jonathan.solar
 * Tash-had Saqif | tash-had.com
 
 # The magic behind it all
