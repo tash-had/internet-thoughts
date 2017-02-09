@@ -34,7 +34,8 @@ Ever wonder what the internet thinks about a certain topic, issue, or person? We
 * JavaScript
   * jQuery
   * Embedded JavaScript (EJS) 
-  * PaperScript 
+  * PaperScript
+  * Apiheap.js
 * HTMl, CSS
 * Heroku
 
