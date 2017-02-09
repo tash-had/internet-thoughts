@@ -8,11 +8,11 @@ Ever wonder what the internet thinks about a certain topic, issue, or person? We
 
 # Screenshots 
 #### Query Screen
-![Query Screen](/img/1_query_screen.jpg?raw=true "Query Screen")
+![Query Screen](/img/query_screen.jpg?raw=true "Query Screen")
 
 #### Positive Query Example
-![Positive Query](/img/pos_query.jpg?&raw=true "Positive Query") 
-![Negative Query](/img/neg_query.jpg?raw=true "Negative Query")
+![Positive Query](/img/pos_query_screen.jpg?&raw=true "Positive Query") 
+![Negative Query](/img/neg_query_screen.jpg?raw=true "Negative Query")
 
 
 # The magic behind it all
