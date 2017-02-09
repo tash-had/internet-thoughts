@@ -32,9 +32,9 @@ Ever wonder what the internet thinks about a certain topic, issue, or person? We
 ### Technologies   
 * NodeJs
 * JavaScript
-* * jQuery
-* * Embedded JavaScript (EJS) 
-* * PaperScript 
+  * jQuery
+  * Embedded JavaScript (EJS) 
+  * PaperScript 
 * HTMl, CSS
 * Heroku
 
