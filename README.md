@@ -4,12 +4,7 @@
 
 #[internetthoughts.net](http://internetthoughts.net/)
 
-Ever wonder what the internet thinks about a certain topic, issue, or person? Well, what better way to gauge the internet's popular opinion than by mass analyzing things said about that topic? Just enter a search query and a sentiment analysis of tons of data in relation to that topic will be returned to you. Find out where you stand amongst the internet! Internet-thoughts was built for YHack 2016 at Yale University. 
-
-## Team 
-[Tash-had Saqif](https://tash-had.com)
-[Robert Xu](http://robxu.me)
-[Jonathan Sun](http://jonathan.solar).
+Ever wonder what the internet thinks about a certain topic, issue, or person? Well, what better way to gauge the internet's popular opinion than by mass analyzing things said about that topic? Just enter a search query and a sentiment analysis of tons of data in relation to that topic will be returned to you. Find out where you stand amongst the internet! Internet-thoughts was built for YHack 2016 at Yale University by [Tash-had Saqif](https://tash-had.com), [Robert Xu](http://robxu.me) and [Jonathan Sun](http://jonathan.solar).
 
 # Screenshots 
 ### Query Screen
