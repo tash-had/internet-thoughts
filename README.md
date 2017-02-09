@@ -8,7 +8,7 @@ Ever wonder what the internet thinks about a certain topic, issue, or person? We
 
 # Screenshots 
 ![Query Screen](/img/1_query_screen.jpg?raw=true "Query Screen")
-![Positive Query](/img/pos_query.jpg?raw=true "Positive Query")
+![Positive Query](/img/pos_query.jpg =100x20?raw=true "Positive Query")
 ![Negative Query](/img/neg_query.jpg?raw=true "Negative Query")
 
 
