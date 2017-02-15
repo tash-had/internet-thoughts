@@ -85,6 +85,8 @@ function Engine(){
     return keySorted.slice(0,Math.min(numberOfWords, keySorted.length));
   }
 
+  // START snippets from https://saqif.me/apiheapjs
+
   this.getRedditComments = function(query){
     var defferedObj = $.Deferred(); 
     this.redditComments = apiRequest('json', "https://api.pushshift.io/reddit/search/comment?q="+query+"&limit=80"); 
@@ -146,3 +148,4 @@ function apiRequest(format, FINAL_URL) {
     return response;
   }
 }
+// END Snippets from Apiheap.js https://saqif.me/apiheapjs
