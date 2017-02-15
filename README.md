@@ -9,7 +9,7 @@ Ever wonder what the internet thinks about a certain topic, issue, or person? We
 # Screenshots 
 ![Gif Demo](/img/InternetThoughtsDemo.gif?raw=true "Demo")
 
-<img src="https://camo.githubusercontent.com/..." data-canonical-src="/img/query_screen.jpg?raw=true" width="200" height="400" />
+<img src="https://camo.githubusercontent.com/..." data-canonical-src="https://github.com/tash-had/internet-thoughts/blob/master/img/neg_query_screen.jpg?raw=true" width="200" height="400" />
 
 ### Query Screen
 ![Query Screen](/img/query_screen.jpg?raw=true "Query Screen")
